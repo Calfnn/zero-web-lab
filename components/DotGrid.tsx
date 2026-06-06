@@ -1,11 +1,11 @@
-// Fine dot-grid background: small accent-green dots on a transparent layer.
+// Fine dot-grid background: small accent-blue dots on a transparent layer.
 // Pure CSS (a tiled radial-gradient) so it's razor-sharp and cheap to paint.
 export default function DotGrid({
   className = "",
   opacity = 0.5,
   gap = 60,
   dot = 2,
-  color = "#89F336",
+  color = "#2C6BFF",
   fadeBottom = false,
 }: {
   className?: string;

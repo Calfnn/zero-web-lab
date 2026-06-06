@@ -13,15 +13,15 @@ Sito vetrina ad alto impatto visivo con animazioni avanzate, custom cursor, page
 
 ## Palette
 
-Tema chiaro: sfondo bianco, accento verde lime, testo near-black.
+Tema chiaro: sfondo bianco, accento blu, testo near-black.
 
 | Ruolo                  | Colore                       |
 | ---------------------- | ---------------------------- |
 | Background             | `#FFFFFF`                    |
 | Surface                | `#F4F4F4` / `#ECECEC`        |
 | Testo (ink)            | `#0A0A0A` / muted `#555555`  |
-| Accento primario       | `#89F336` (verde lime)       |
-| Glow accento           | `rgba(137, 243, 54, 0.18)`   |
+| Accento primario       | `#2C6BFF` (blu)              |
+| Glow accento           | `rgba(44, 107, 255, 0.18)`  |
 | Tile progetti (scure)  | `#1A1A1A` (stand-in foto)    |
 
 ## Avvio rapido

@@ -100,7 +100,7 @@ export default function Hero() {
         <DotGrid className="h-full w-full" opacity={0.55} />
       </div>
 
-      {/* Green glow blob bottom-right */}
+      {/* Blue glow blob bottom-right */}
       <div
         ref={blobRef}
         className="pointer-events-none absolute -bottom-40 -right-40 -z-10 h-[600px] w-[600px] rounded-full bg-accent opacity-20 blur-[160px] transition-transform duration-500 ease-out"

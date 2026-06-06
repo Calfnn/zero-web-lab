@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Light theme: white page, lime-green accent, near-black ink for text.
+        // Light theme: white page, blue accent, near-black ink for text.
         background: "#FFFFFF",
         surface: {
           DEFAULT: "#F4F4F4",
@@ -21,8 +21,8 @@ const config: Config = {
           soft: "#1A1A1A",
         },
         accent: {
-          DEFAULT: "#89F336",
-          glow: "rgba(137, 243, 54, 0.18)",
+          DEFAULT: "#2C6BFF",
+          glow: "rgba(44, 107, 255, 0.18)",
         },
         muted: "#555555",
       },
