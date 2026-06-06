@@ -1,0 +1,199 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --accent: #89f336;
+  --accent-glow: rgba(137, 243, 54, 0.18);
+  --background: #ffffff;
+  --ink: #0a0a0a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--ink);
+  overflow-x: hidden;
+  font-feature-settings: "kern";
+}
+
+/* Hide native cursor on devices that have a fine pointer (custom cursor) */
+@media (pointer: fine) {
+  body.custom-cursor-active,
+  body.custom-cursor-active * {
+    cursor: none;
+  }
+}
+
+/* ---- Custom cursor ---- */
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0;
+  will-change: transform;
+}
+
+/* Inner dot: tracks the pointer exactly (no transition on transform). */
+.cursor-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background: var(--ink);
+  transition: width 0.18s ease, height 0.18s ease, background-color 0.18s ease,
+    opacity 0.2s ease;
+}
+.cursor-dot.cursor-dot--hover {
+  width: 0;
+  height: 0;
+}
+
+/* Outer ring: eased follow (positioned via JS), animates size/color only. */
+.cursor-ring {
+  width: 30px;
+  height: 30px;
+  border-radius: 9999px;
+  border: 1.5px solid var(--ink);
+  transition: width 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+    height 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.22s ease, background-color 0.22s ease, opacity 0.2s ease;
+}
+.cursor-ring.cursor-ring--hover {
+  width: 46px;
+  height: 46px;
+  border-color: var(--accent);
+  background: var(--accent-glow);
+}
+.cursor-ring.cursor-ring--press {
+  width: 24px;
+  height: 24px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor-ring {
+    transition: opacity 0.2s ease;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+::-webkit-scrollbar-thumb {
+  background: #d8d8d8;
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c2c2c2;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--ink);
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-[1280px] px-6 md:px-10;
+  }
+
+  .section-label {
+    @apply mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-ultra text-ink/60;
+  }
+
+  .display-heading {
+    @apply font-display uppercase leading-[0.9] tracking-wide;
+  }
+
+  /* Pill primary CTA — green fill, dark text */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-accent px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-ink transition-all duration-300 hover:shadow-[0_0_40px_var(--accent-glow)] hover:-translate-y-0.5;
+  }
+
+  /* Ghost / outline CTA — dark outline */
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-ink/30 px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-ink transition-all duration-300 hover:border-ink hover:bg-ink/5;
+  }
+
+  .card-surface {
+    @apply rounded-2xl border border-ink/10 bg-surface transition-all duration-300;
+  }
+}
+
+@layer utilities {
+  /* Noise / placeholder texture for the dark "photo" tiles that stay dark
+     on the light page (project imagery stand-ins). */
+  .placeholder-noise {
+    background-color: #1a1a1a;
+    background-image: radial-gradient(
+        circle at 1px 1px,
+        rgba(255, 255, 255, 0.06) 1px,
+        transparent 0
+      );
+    background-size: 4px 4px;
+  }
+
+  .grid-lines {
+    background-image: linear-gradient(
+        to right,
+        rgba(137, 243, 54, 0.12) 1px,
+        transparent 1px
+      ),
+      linear-gradient(to bottom, rgba(137, 243, 54, 0.12) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  .text-glow {
+    text-shadow: 0 0 30px var(--accent-glow);
+  }
+
+  /* Hero title: Bebas Neue ships a single weight, so thicken the glyphs with a
+     matching text-stroke to make the headline read heavier/bolder. */
+  .hero-title {
+    letter-spacing: 0.03em;
+  }
+  .hero-title .hero-word {
+    -webkit-text-stroke: 2.2px var(--ink);
+    paint-order: stroke fill;
+  }
+  @media (max-width: 768px) {
+    .hero-title .hero-word {
+      -webkit-text-stroke-width: 1.4px;
+    }
+  }
+
+  /* Clip-path reveal for section headings */
+  .reveal-clip {
+    clip-path: inset(0 0 100% 0);
+    transition: clip-path 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal-clip.is-visible {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
