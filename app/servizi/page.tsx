@@ -8,7 +8,7 @@ import { services } from "@/lib/data";
 export const metadata: Metadata = {
   title: "Servizi",
   description:
-    "Web design e sviluppo, UI/UX, brand identity, e-commerce, SEO e manutenzione: tutti i servizi di Zero Web Lab.",
+    "Siti vetrina e landing page, siti web su misura, creazione e gestione pagina Google, manutenzione e supporto: tutti i servizi di Zero Web Lab.",
 };
 
 export default function ServiziPage() {

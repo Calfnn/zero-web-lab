@@ -6,7 +6,7 @@ import FinalCTA from "@/components/FinalCTA";
 export const metadata: Metadata = {
   title: "Progetti",
   description:
-    "Una selezione dei progetti realizzati da Zero Web Lab: web design, e-commerce e brand identity.",
+    "Una selezione dei progetti realizzati da Zero Web Lab: siti vetrina, siti su misura e brand identity.",
 };
 
 export default function ProgettiPage() {

@@ -1,9 +1,9 @@
 const ITEMS = [
-  "WEB DESIGN",
-  "BRANDING",
-  "SEO",
-  "UI/UX",
-  "E-COMMERCE",
+  "SITI VETRINA",
+  "LANDING PAGE",
+  "SITI SU MISURA",
+  "PAGINA GOOGLE",
+  "MANUTENZIONE",
   "SVILUPPO WEB",
 ];
 

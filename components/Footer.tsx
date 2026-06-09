@@ -14,10 +14,10 @@ const columns = [
   {
     title: "Servizi",
     links: [
-      { label: "Web Design", href: "/servizi" },
-      { label: "UI/UX Design", href: "/servizi" },
-      { label: "Brand Identity", href: "/servizi" },
-      { label: "E-Commerce", href: "/servizi" },
+      { label: "Siti Vetrina & Landing Page", href: "/servizi" },
+      { label: "Siti Web su Misura", href: "/servizi" },
+      { label: "Pagina Google", href: "/servizi" },
+      { label: "Manutenzione & Supporto", href: "/servizi" },
     ],
   },
   {

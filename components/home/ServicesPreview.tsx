@@ -7,18 +7,18 @@ import SectionHeading from "@/components/SectionHeading";
 const previews = [
   {
     num: "01",
-    title: "Web Design",
-    description: "Siti su misura, veloci e scalabili, pensati per emozionare e convertire.",
+    title: "Siti Vetrina",
+    description: "Siti vetrina e landing page veloci ed efficaci, pensati per presentare la tua attività.",
   },
   {
     num: "02",
-    title: "Branding",
-    description: "Identità visive coerenti che rendono il tuo brand riconoscibile ovunque.",
+    title: "Siti su Misura",
+    description: "Progetti più elaborati con funzionalità avanzate e integrazioni personalizzate.",
   },
   {
     num: "03",
-    title: "E-Commerce",
-    description: "Negozi online performanti con checkout ottimizzati che vendono davvero.",
+    title: "Pagina Google",
+    description: "Creazione e gestione del profilo Google per farti trovare su Ricerca e Maps.",
   },
 ];
 

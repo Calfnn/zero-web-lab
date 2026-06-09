@@ -34,12 +34,13 @@ export const metadata: Metadata = {
   description:
     "Zero Web Lab è l'agenzia di web design che progetta siti web, brand identity ed esperienze digitali che convertono. Milano, IT.",
   keywords: [
-    "web design",
+    "siti vetrina",
+    "landing page",
     "agenzia web",
-    "brand identity",
-    "e-commerce",
-    "UI/UX",
-    "SEO",
+    "siti web su misura",
+    "pagina Google",
+    "Google Business Profile",
+    "manutenzione sito",
     "Milano",
     "Zero Web Lab",
   ],

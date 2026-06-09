@@ -12,57 +12,41 @@ export type Service = {
 export const services: Service[] = [
   {
     num: "01",
-    title: "Web Design & Sviluppo",
-    short: "Siti su misura, veloci e scalabili.",
+    title: "Siti Vetrina & Landing Page",
+    short: "La tua presenza online, curata nei dettagli.",
     description:
-      "Progettiamo e sviluppiamo siti web performanti con tecnologie moderne, ottimizzati per ogni dispositivo.",
-    bullets: ["Next.js & React", "Animazioni avanzate", "Headless CMS", "Hosting & deploy"],
+      "Progettiamo siti vetrina e landing page veloci ed efficaci, pensate per presentare la tua attività e convertire i visitatori in clienti.",
+    bullets: ["Design su misura", "Ottimizzati per mobile", "Veloci e leggeri", "Pronti a convertire"],
   },
   {
     num: "02",
-    title: "UI/UX Design",
-    short: "Interfacce intuitive e memorabili.",
+    title: "Siti Web su Misura",
+    short: "Progetti più elaborati e funzionalità avanzate.",
     description:
-      "Studiamo ogni interazione per creare esperienze fluide, accessibili e orientate alla conversione.",
-    bullets: ["User research", "Wireframe & prototipi", "Design system", "Usability testing"],
+      "Sviluppiamo siti web complessi e personalizzati: aree riservate, integrazioni, contenuti dinamici e tutto ciò che serve al tuo progetto.",
+    bullets: ["Funzionalità avanzate", "Integrazioni su misura", "Contenuti dinamici", "Scalabili nel tempo"],
   },
   {
     num: "03",
-    title: "Brand Identity",
-    short: "Identità visive che restano impresse.",
+    title: "Pagina Google",
+    short: "Creazione e gestione del tuo profilo Google.",
     description:
-      "Costruiamo brand coerenti: logo, palette, tipografia e linee guida che raccontano chi sei.",
-    bullets: ["Logo & marchio", "Palette & tipografia", "Brand guidelines", "Asset coordinati"],
+      "Creiamo e gestiamo la tua scheda Google Business Profile per farti trovare su Ricerca e Maps, con informazioni sempre aggiornate.",
+    bullets: ["Creazione profilo", "Ottimizzazione scheda", "Gestione recensioni", "Aggiornamenti costanti"],
   },
   {
     num: "04",
-    title: "E-Commerce",
-    short: "Negozi online che vendono davvero.",
-    description:
-      "Realizziamo store performanti con checkout ottimizzati, gestione prodotti e integrazioni di pagamento.",
-    bullets: ["Shopify & headless", "Checkout ottimizzato", "Gestione catalogo", "Pagamenti sicuri"],
-  },
-  {
-    num: "05",
-    title: "SEO & Performance",
-    short: "Visibilità e velocità ai massimi livelli.",
-    description:
-      "Ottimizziamo ogni dettaglio tecnico per scalare le SERP e garantire caricamenti istantanei.",
-    bullets: ["SEO tecnica", "Core Web Vitals", "Content strategy", "Analytics & report"],
-  },
-  {
-    num: "06",
     title: "Manutenzione & Supporto",
     short: "Il tuo sito sempre al top.",
     description:
-      "Aggiornamenti, monitoraggio e assistenza continua per mantenere il progetto sicuro e aggiornato.",
+      "Aggiornamenti, monitoraggio e assistenza continua per mantenere il progetto sicuro, veloce e aggiornato nel tempo.",
     bullets: ["Aggiornamenti", "Backup & sicurezza", "Monitoraggio uptime", "Supporto dedicato"],
   },
 ];
 
 export type Project = {
   title: string;
-  category: "Web Design" | "E-Commerce" | "Branding";
+  category: "Sito Vetrina" | "Sito su Misura" | "Branding";
   year: string;
   description: string;
 };
@@ -70,15 +54,15 @@ export type Project = {
 export const projects: Project[] = [
   {
     title: "Nordic Atelier",
-    category: "Web Design",
+    category: "Sito Vetrina",
     year: "2025",
     description: "Sito vetrina per studio di architettura scandinavo.",
   },
   {
     title: "Verde Market",
-    category: "E-Commerce",
+    category: "Sito Vetrina",
     year: "2025",
-    description: "Store bio con checkout one-page e abbonamenti.",
+    description: "Sito vetrina per azienda agricola bio con listino prodotti.",
   },
   {
     title: "Lumen Studio",
@@ -88,15 +72,15 @@ export const projects: Project[] = [
   },
   {
     title: "Flux Finance",
-    category: "Web Design",
+    category: "Sito su Misura",
     year: "2024",
     description: "Landing per fintech con dashboard interattiva.",
   },
   {
-    title: "Botanica Shop",
-    category: "E-Commerce",
+    title: "Botanica Garden",
+    category: "Sito Vetrina",
     year: "2024",
-    description: "Marketplace di piante rare e accessori.",
+    description: "Sito vetrina per vivaio di piante rare.",
   },
   {
     title: "Orbit Agency",
@@ -106,15 +90,15 @@ export const projects: Project[] = [
   },
   {
     title: "Pulse Fitness",
-    category: "Web Design",
+    category: "Sito su Misura",
     year: "2023",
     description: "Piattaforma per palestre con prenotazioni online.",
   },
   {
     title: "Aurora Cosmetics",
-    category: "E-Commerce",
+    category: "Sito Vetrina",
     year: "2023",
-    description: "Beauty store premium con configuratore prodotto.",
+    description: "Sito vetrina premium per brand di cosmetica.",
   },
 ];
 
@@ -177,7 +161,7 @@ export const faqs = [
   {
     question: "Quanto tempo serve per realizzare un progetto?",
     answer:
-      "Un sito vetrina richiede in media 3-4 settimane, un e-commerce 6-8 settimane. Le tempistiche esatte le definiamo insieme nella fase di Discovery.",
+      "Un sito vetrina richiede in media 3-4 settimane, un sito più elaborato 6-8 settimane. Le tempistiche esatte le definiamo insieme nella fase di Discovery.",
   },
   {
     question: "Offrite assistenza dopo il lancio?",
