@@ -16,7 +16,7 @@ const columns = [
     links: [
       { label: "Siti Vetrina & Landing Page", href: "/servizi" },
       { label: "Siti Web su Misura", href: "/servizi" },
-      { label: "Pagina Google", href: "/servizi" },
+      { label: "Pagina Google e SEO", href: "/servizi" },
       { label: "Manutenzione & Supporto", href: "/servizi" },
     ],
   },
@@ -25,7 +25,7 @@ const columns = [
     links: [
       { label: contactInfo.email, href: `mailto:${contactInfo.email}` },
       { label: contactInfo.phone, href: `tel:${contactInfo.phone.replace(/\s/g, "")}` },
-      { label: "Milano, IT", href: "/contatti" },
+      { label: "Torino, IT", href: "/contatti" },
     ],
   },
 ];
@@ -47,7 +47,7 @@ export default function Footer() {
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-muted">
               Trasformiamo idee in esperienze digitali memorabili. Web design,
-              brand identity e sviluppo da Milano per tutto il mondo.
+              brand identity e sviluppo da Torino per tutto il mondo.
             </p>
           </div>
 

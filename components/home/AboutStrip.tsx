@@ -6,7 +6,7 @@ import ScrambleText from "@/components/ScrambleText";
 
 const stats = [
   { to: 50, suffix: "+", label: "Progetti" },
-  { to: 8, suffix: "+", label: "Anni" },
+  { to: 4, suffix: "+", label: "Anni" },
   { to: 100, suffix: "%", label: "Soddisfazione" },
 ];
 

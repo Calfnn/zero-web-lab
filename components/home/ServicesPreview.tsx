@@ -17,8 +17,8 @@ const previews = [
   },
   {
     num: "03",
-    title: "Pagina Google",
-    description: "Creazione e gestione del profilo Google per farti trovare su Ricerca e Maps.",
+    title: "Google My Business",
+    description: "Creazione e gestione del profilo Google My Business per farti trovare e presentare al meglio la tua attività su Ricerca e Maps.",
   },
 ];
 
