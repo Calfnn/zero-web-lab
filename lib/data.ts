@@ -28,11 +28,11 @@ export const services: Service[] = [
   },
   {
     num: "03",
-    title: "Pagina Google",
+    title: "Google My Business",
     short: "Creazione e gestione del tuo profilo Google.",
     description:
       "Creiamo e gestiamo la tua scheda Google Business Profile per farti trovare su Ricerca e Maps, con informazioni sempre aggiornate.",
-    bullets: ["Creazione profilo", "Ottimizzazione scheda", "Gestione recensioni", "Aggiornamenti costanti"],
+    bullets: ["Creazione profilo", "Ottimizzazione scheda", "SEO", "Aggiornamenti costanti"],
   },
   {
     num: "04",
@@ -161,7 +161,7 @@ export const faqs = [
   {
     question: "Quanto tempo serve per realizzare un progetto?",
     answer:
-      "Un sito vetrina richiede in media 3-4 settimane, un sito più elaborato 6-8 settimane. Le tempistiche esatte le definiamo insieme nella fase di Discovery.",
+      "Un sito vetrina richiede in media 1-2 settimane, un sito più elaborato 2-4 settimane. Le tempistiche esatte le definiamo insieme nella prima fase di Discovery.",
   },
   {
     question: "Offrite assistenza dopo il lancio?",
@@ -169,7 +169,7 @@ export const faqs = [
       "Sì. Proponiamo piani di manutenzione e supporto continuativo per aggiornamenti, sicurezza e nuove funzionalità.",
   },
   {
-    question: "Lavorate con clienti fuori Milano?",
+    question: "Lavorate con clienti fuori Torino?",
     answer:
       "Assolutamente. Collaboriamo con clienti in tutta Italia e all'estero, gestendo l'intero processo da remoto in modo fluido.",
   },
