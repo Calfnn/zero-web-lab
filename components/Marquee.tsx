@@ -2,9 +2,10 @@ const ITEMS = [
   "SITI VETRINA",
   "LANDING PAGE",
   "SITI SU MISURA",
-  "PAGINA GOOGLE",
+  "GOOGLE MY BUSINESS",
+  "SEO",
   "MANUTENZIONE",
-  "SVILUPPO WEB",
+  "HOSTING",
 ];
 
 export default function Marquee() {
