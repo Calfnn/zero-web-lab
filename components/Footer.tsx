@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { contactInfo } from "@/lib/data";
+import LogoMark from "./LogoMark";
 
 const columns = [
   {
@@ -41,9 +42,12 @@ export default function Footer() {
           <div className="max-w-xs">
             <Link
               href="/"
-              className="font-display text-2xl uppercase tracking-ultra text-ink"
+              className="inline-flex items-center gap-3 text-ink"
             >
-              ZERO<span className="text-accent">.</span>WEB LAB
+              <LogoMark className="h-8 w-8 shrink-0" />
+              <span className="font-display text-2xl uppercase tracking-ultra">
+                ZERO<span className="text-accent">.</span>WEB LAB
+              </span>
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-muted">
               Trasformiamo idee in esperienze digitali memorabili. Web design,
