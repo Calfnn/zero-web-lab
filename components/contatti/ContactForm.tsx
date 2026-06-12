@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { services } from "@/lib/data";
 
-type Status = "idle" | "loading" | "success";
+type Status = "idle" | "loading" | "success" | "error";
 
 // Floating-label input with bottom-border-only style.
 function FloatingInput({
@@ -71,15 +71,34 @@ export default function ContactForm() {
   const set = (key: keyof typeof form) => (v: string) =>
     setForm((f) => ({ ...f, [key]: v }));
 
-  const onSubmit = (e: React.FormEvent) => {
+  const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("loading");
-    // Simulate an async submit (no backend wired up).
-    setTimeout(() => {
-      setStatus("success");
-      setForm({ name: "", email: "", service: "", message: "" });
-      setTimeout(() => setStatus("idle"), 4000);
-    }, 1600);
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY,
+          subject: `Nuovo contatto dal sito — ${form.service || "Richiesta generica"}`,
+          from_name: "Zero Web Lab — Sito",
+          name: form.name,
+          email: form.email,
+          service: form.service,
+          message: form.message,
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setStatus("success");
+        setForm({ name: "", email: "", service: "", message: "" });
+        setTimeout(() => setStatus("idle"), 4000);
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
   };
 
   return (
@@ -128,7 +147,7 @@ export default function ContactForm() {
 
       <button
         type="submit"
-        disabled={status !== "idle"}
+        disabled={status === "loading" || status === "success"}
         className="btn-primary w-full disabled:cursor-not-allowed disabled:opacity-80"
       >
         {status === "idle" && <>Invia messaggio →</>}
@@ -143,6 +162,7 @@ export default function ContactForm() {
           </span>
         )}
         {status === "success" && <>✓ Messaggio inviato!</>}
+        {status === "error" && <>Invia messaggio →</>}
       </button>
 
       {status === "success" && (
@@ -152,6 +172,16 @@ export default function ContactForm() {
           className="text-sm text-accent"
         >
           Grazie! Ti risponderemo entro 24 ore.
+        </motion.p>
+      )}
+
+      {status === "error" && (
+        <motion.p
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-sm text-red-500"
+        >
+          Ops, qualcosa è andato storto. Riprova o scrivici a zeroweblab@gmail.com.
         </motion.p>
       )}
     </form>

@@ -9,15 +9,9 @@ export default function LoadingScreen() {
   const [done, setDone] = useState(false);
 
   useEffect(() => {
-    // Only show the loading screen once per session
-    if (typeof window !== "undefined" && sessionStorage.getItem("zw-loaded")) {
-      setDone(true);
-      return;
-    }
-    const t = setTimeout(() => {
-      setDone(true);
-      sessionStorage.setItem("zw-loaded", "1");
-    }, 2100);
+    // Fade the overlay out right as the letter-by-letter entrance finishes
+    // (last char lands around 1.06s).
+    const t = setTimeout(() => setDone(true), 1100);
     return () => clearTimeout(t);
   }, []);
 

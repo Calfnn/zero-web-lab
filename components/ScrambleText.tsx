@@ -17,23 +17,19 @@ type Props = {
   style?: CSSProperties;
   /** HTML tag to render (h1, h2, span, …). */
   as?: ElementType;
-  /** Length of the scramble in animation frames. */
+  /** Length of the scramble in milliseconds (independent of screen refresh rate). */
   duration?: number;
-  /** Re-scramble every N ms while in view. 0 disables the periodic replay. */
-  repeat?: number;
 };
 
 // Text that "decodes" with a scramble effect. Triggers:
 //   - the first time it scrolls into view,
-//   - on hover,
-//   - and periodically every `repeat` ms while visible (desynced per instance).
+//   - and on hover.
 export default function ScrambleText({
   text,
   className = "",
   style,
   as: Tag = "span",
-  duration = 26,
-  repeat = 6000,
+  duration = 750,
 }: Props) {
   const ref = useRef<HTMLElement>(null);
   const inView = useInView(ref, { amount: 0.5 });
@@ -43,24 +39,26 @@ export default function ScrambleText({
 
   const scramble = () => {
     cancelAnimationFrame(rafRef.current);
-    let frame = 0;
-    const run = () => {
+    const start = performance.now();
+    const run = (now: number) => {
+      // Progress is driven by elapsed time, so the scramble lasts `duration`
+      // ms on every screen regardless of refresh rate (60/75/120 Hz).
+      const elapsed = now - start;
       const out = text
         .split("")
         .map((ch, i) => {
           if (ch === " ") return " ";
           const revealAt = (i / text.length) * duration;
-          return frame >= revealAt
+          return elapsed >= revealAt
             ? ch
             : CHARS[(Math.random() * CHARS.length) | 0];
         })
         .join("");
       setDisplay(out);
-      frame++;
-      if (frame <= duration) rafRef.current = requestAnimationFrame(run);
+      if (elapsed <= duration) rafRef.current = requestAnimationFrame(run);
       else setDisplay(text);
     };
-    run();
+    rafRef.current = requestAnimationFrame(run);
   };
 
   // First time it enters the viewport.
@@ -71,20 +69,6 @@ export default function ScrambleText({
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [inView]);
-
-  // Periodic replay while in view (random offset so instances don't sync up).
-  useEffect(() => {
-    if (!repeat || !inView) return;
-    let interval: ReturnType<typeof setInterval> | undefined;
-    const timeout = setTimeout(() => {
-      interval = setInterval(scramble, repeat);
-    }, repeat + Math.random() * 2000);
-    return () => {
-      clearTimeout(timeout);
-      if (interval) clearInterval(interval);
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [inView, repeat]);
 
   // Cleanup any pending frame on unmount.
   useEffect(() => () => cancelAnimationFrame(rafRef.current), []);

@@ -25,8 +25,7 @@ const columns = [
     title: "Contatti",
     links: [
       { label: contactInfo.email, href: `mailto:${contactInfo.email}` },
-      { label: contactInfo.phone, href: `tel:${contactInfo.phone.replace(/\s/g, "")}` },
-      { label: "Torino, IT", href: "/contatti" },
+      { label: contactInfo.address, href: "/contatti" },
     ],
   },
 ];

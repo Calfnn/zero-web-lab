@@ -53,15 +53,6 @@ export default function ContattiPage() {
                 </a>
               </div>
               <div>
-                <p className="text-xs uppercase tracking-ultra text-accent">Telefono</p>
-                <a
-                  href={`tel:${contactInfo.phone.replace(/\s/g, "")}`}
-                  className="font-display text-2xl uppercase tracking-wide text-ink transition-colors hover:text-accent"
-                >
-                  {contactInfo.phone}
-                </a>
-              </div>
-              <div>
                 <p className="text-xs uppercase tracking-ultra text-accent">Sede</p>
                 <p className="font-display text-2xl uppercase tracking-wide text-ink">
                   {contactInfo.address}

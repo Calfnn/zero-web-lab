@@ -183,13 +183,9 @@ export const navLinks = [
 ];
 
 export const contactInfo = {
-  email: "ciao@zeroweblab.it",
-  phone: "+39 02 1234 5678",
-  address: "Via del Design 42, Milano, IT",
+  email: "zeroweblab@gmail.com",
+  address: "Torino, Piemonte",
   socials: [
-    { label: "Instagram", href: "https://instagram.com" },
-    { label: "LinkedIn", href: "https://linkedin.com" },
-    { label: "Behance", href: "https://behance.net" },
-    { label: "Dribbble", href: "https://dribbble.com" },
+    { label: "Instagram", href: "https://instagram.com/zeroweblab" },
   ],
 };
