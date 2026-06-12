@@ -8,7 +8,7 @@ import { contactInfo } from "@/lib/data";
 export const metadata: Metadata = {
   title: "Contatti",
   description:
-    "Parliamo del tuo prossimo progetto. Contatta Zero Web Lab a Milano per siti vetrina, siti su misura, pagina Google e supporto.",
+    "Parliamo del tuo prossimo progetto. Contatta Zero Web Lab a Torino per siti vetrina, siti su misura, pagina Google e supporto.",
 };
 
 export default function ContattiPage() {

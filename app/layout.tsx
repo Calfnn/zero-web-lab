@@ -25,6 +25,28 @@ const dmSans = DM_Sans({
 
 const siteUrl = "https://zeroweblab.it";
 
+// Structured data: tells Google this is a real business entity (helps brand
+// search, local SEO for Torino, and rich results).
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "Zero Web Lab",
+  url: siteUrl,
+  image: `${siteUrl}/og.png`,
+  description:
+    "Agenzia di web design a Torino: siti web, brand identity ed esperienze digitali che convertono.",
+  email: "zeroweblab@gmail.com",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Torino",
+    addressRegion: "Piemonte",
+    addressCountry: "IT",
+  },
+  areaServed: "IT",
+  sameAs: ["https://instagram.com/zeroweblab"],
+  knowsAbout: ["Web Design", "Siti Web", "Brand Identity", "SEO", "Landing Page"],
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
@@ -32,7 +54,7 @@ export const metadata: Metadata = {
     template: "%s — Zero Web Lab",
   },
   description:
-    "Zero Web Lab è l'agenzia di web design che progetta siti web, brand identity ed esperienze digitali che convertono. Milano, IT.",
+    "Zero Web Lab è l'agenzia di web design che progetta siti web, brand identity ed esperienze digitali che convertono. Torino, IT.",
   keywords: [
     "siti vetrina",
     "landing page",
@@ -41,7 +63,9 @@ export const metadata: Metadata = {
     "pagina Google",
     "Google Business Profile",
     "manutenzione sito",
-    "Milano",
+    "agenzia web Torino",
+    "web design Torino",
+    "Torino",
     "Zero Web Lab",
   ],
   authors: [{ name: "Zero Web Lab" }],
@@ -65,6 +89,9 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  verification: {
+    google: "das8riPrvp4EmS7w34KkWifskeT6gJiSX-RC4fEUv9w",
+  },
   alternates: {
     canonical: siteUrl,
   },
@@ -78,6 +105,10 @@ export default function RootLayout({
   return (
     <html lang="it" className={`${bebas.variable} ${dmSans.variable}`}>
       <body className="font-sans antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <LoadingScreen />
         <CustomCursor />
         <ScrollProgress />
