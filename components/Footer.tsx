@@ -76,9 +76,25 @@ export default function Footer() {
         </div>
 
         <div className="mt-16 flex flex-col items-start justify-between gap-4 border-t border-ink/10 pt-8 md:flex-row md:items-center">
-          <p className="text-xs text-muted">
-            © 2025 Zero Web Lab — zeroweblab.it
-          </p>
+          <div className="flex flex-col gap-2 md:flex-row md:items-center md:gap-6">
+            <p className="text-xs text-muted">
+              © {new Date().getFullYear()} Zero Web Lab — zeroweblab.it
+            </p>
+            <div className="flex gap-6">
+              <Link
+                href="/privacy-policy"
+                className="text-xs text-muted transition-colors hover:text-accent"
+              >
+                Privacy Policy
+              </Link>
+              <Link
+                href="/cookie-policy"
+                className="text-xs text-muted transition-colors hover:text-accent"
+              >
+                Cookie Policy
+              </Link>
+            </div>
+          </div>
           <div className="flex gap-6">
             {contactInfo.socials.map((s) => (
               <a

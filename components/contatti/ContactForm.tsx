@@ -4,7 +4,12 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { services } from "@/lib/data";
 
-type Status = "idle" | "loading" | "success" | "error";
+type Status = "idle" | "loading" | "success" | "error" | "invalid";
+
+// Conservative field limits — block oversized payloads / paste bombs.
+const LIMITS = { name: 80, email: 120, message: 2000 } as const;
+// Simple but solid email shape check (defense in depth on top of type="email").
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 // Floating-label input with bottom-border-only style.
 function FloatingInput({
@@ -15,6 +20,7 @@ function FloatingInput({
   value,
   onChange,
   required = true,
+  maxLength,
 }: {
   id: string;
   label: string;
@@ -23,6 +29,7 @@ function FloatingInput({
   value: string;
   onChange: (v: string) => void;
   required?: boolean;
+  maxLength?: number;
 }) {
   const shared =
     "peer w-full border-b border-ink/20 bg-transparent pb-2 pt-6 text-ink outline-none transition-colors focus:border-accent placeholder-transparent";
@@ -34,6 +41,7 @@ function FloatingInput({
           rows={4}
           placeholder={label}
           required={required}
+          maxLength={maxLength}
           value={value}
           onChange={(e) => onChange(e.target.value)}
           className={`${shared} resize-none`}
@@ -44,6 +52,7 @@ function FloatingInput({
           type={type}
           placeholder={label}
           required={required}
+          maxLength={maxLength}
           value={value}
           onChange={(e) => onChange(e.target.value)}
           className={shared}
@@ -67,12 +76,46 @@ export default function ContactForm() {
     service: "",
     message: "",
   });
+  // Honeypot: a real user never sees/fills this. Bots that auto-fill every
+  // field will, and we silently drop their submission.
+  const [trap, setTrap] = useState("");
+  // GDPR consent — must be ticked before the form can be sent.
+  const [consent, setConsent] = useState(false);
 
   const set = (key: keyof typeof form) => (v: string) =>
     setForm((f) => ({ ...f, [key]: v }));
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Bot caught by the honeypot: fake a success and send nothing.
+    if (trap) {
+      setStatus("success");
+      setForm({ name: "", email: "", service: "", message: "" });
+      setTimeout(() => setStatus("idle"), 4000);
+      return;
+    }
+
+    // Normalize + validate before sending.
+    const name = form.name.trim();
+    const email = form.email.trim();
+    const message = form.message.trim();
+    const service = form.service;
+
+    if (
+      !consent ||
+      name.length < 2 ||
+      name.length > LIMITS.name ||
+      !EMAIL_RE.test(email) ||
+      email.length > LIMITS.email ||
+      !service ||
+      message.length < 10 ||
+      message.length > LIMITS.message
+    ) {
+      setStatus("invalid");
+      return;
+    }
+
     setStatus("loading");
     try {
       const res = await fetch("https://api.web3forms.com/submit", {
@@ -80,18 +123,20 @@ export default function ContactForm() {
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
           access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY,
-          subject: `Nuovo contatto dal sito — ${form.service || "Richiesta generica"}`,
+          subject: `Nuovo contatto dal sito — ${service || "Richiesta generica"}`,
           from_name: "Zero Web Lab — Sito",
-          name: form.name,
-          email: form.email,
-          service: form.service,
-          message: form.message,
+          botcheck: "", // Web3Forms native spam flag
+          name,
+          email,
+          service,
+          message,
         }),
       });
       const data = await res.json();
       if (data.success) {
         setStatus("success");
         setForm({ name: "", email: "", service: "", message: "" });
+        setConsent(false);
         setTimeout(() => setStatus("idle"), 4000);
       } else {
         setStatus("error");
@@ -102,14 +147,33 @@ export default function ContactForm() {
   };
 
   return (
-    <form onSubmit={onSubmit} className="space-y-8">
-      <FloatingInput id="name" label="Nome" value={form.name} onChange={set("name")} />
+    <form onSubmit={onSubmit} className="space-y-8" noValidate>
+      {/* Honeypot — hidden from users, irresistible to bots. */}
+      <input
+        type="text"
+        name="company_website"
+        tabIndex={-1}
+        autoComplete="off"
+        value={trap}
+        onChange={(e) => setTrap(e.target.value)}
+        className="absolute left-[-9999px] h-0 w-0 opacity-0"
+        aria-hidden
+      />
+
+      <FloatingInput
+        id="name"
+        label="Nome"
+        value={form.name}
+        onChange={set("name")}
+        maxLength={LIMITS.name}
+      />
       <FloatingInput
         id="email"
         label="Email"
         type="email"
         value={form.email}
         onChange={set("email")}
+        maxLength={LIMITS.email}
       />
 
       <div className="relative">
@@ -143,7 +207,25 @@ export default function ContactForm() {
         textarea
         value={form.message}
         onChange={set("message")}
+        maxLength={LIMITS.message}
       />
+
+      <label htmlFor="consent" className="flex cursor-pointer items-start gap-3 text-sm text-muted">
+        <input
+          id="consent"
+          type="checkbox"
+          checked={consent}
+          onChange={(e) => setConsent(e.target.checked)}
+          className="mt-1 h-4 w-4 shrink-0 accent-accent"
+        />
+        <span>
+          Ho letto e accetto la{" "}
+          <a href="/privacy-policy" target="_blank" className="text-accent underline underline-offset-2">
+            Privacy Policy
+          </a>{" "}
+          e acconsento al trattamento dei miei dati per rispondere alla richiesta.
+        </span>
+      </label>
 
       <button
         type="submit"
@@ -162,7 +244,7 @@ export default function ContactForm() {
           </span>
         )}
         {status === "success" && <>✓ Messaggio inviato!</>}
-        {status === "error" && <>Invia messaggio →</>}
+        {(status === "error" || status === "invalid") && <>Invia messaggio →</>}
       </button>
 
       {status === "success" && (
@@ -172,6 +254,17 @@ export default function ContactForm() {
           className="text-sm text-accent"
         >
           Grazie! Ti risponderemo entro 24 ore.
+        </motion.p>
+      )}
+
+      {status === "invalid" && (
+        <motion.p
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-sm text-red-500"
+        >
+          Controlla i campi: inserisci un nome, un&apos;email valida, un messaggio
+          di almeno 10 caratteri e accetta la Privacy Policy.
         </motion.p>
       )}
 
