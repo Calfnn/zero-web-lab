@@ -1,12 +1,16 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 import Lenis from "lenis";
 
 // Global inertia / smooth scrolling (Lenis). Drives the window scroll, so
 // framer-motion's useScroll/whileInView keep working. Disabled for users who
 // prefer reduced motion. `syncTouch` extends the smoothing to touch devices.
 export default function SmoothScroll() {
+  const lenisRef = useRef<Lenis | null>(null);
+  const pathname = usePathname();
+
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
@@ -17,7 +21,7 @@ export default function SmoothScroll() {
       syncTouch: true,
       touchMultiplier: 1.5,
     });
-
+    lenisRef.current = lenis;
     // Expose so other components (e.g. the mobile menu) can stop/start scrolling.
     (window as unknown as { lenis?: Lenis }).lenis = lenis;
 
@@ -31,9 +35,18 @@ export default function SmoothScroll() {
     return () => {
       cancelAnimationFrame(raf);
       lenis.destroy();
+      lenisRef.current = null;
       delete (window as unknown as { lenis?: Lenis }).lenis;
     };
   }, []);
+
+  // On every route change, jump back to the top of the new page. Lenis keeps its
+  // own scroll state, so without this it would keep the previous page's offset.
+  useEffect(() => {
+    const lenis = lenisRef.current;
+    if (lenis) lenis.scrollTo(0, { immediate: true });
+    else window.scrollTo(0, 0);
+  }, [pathname]);
 
   return null;
 }

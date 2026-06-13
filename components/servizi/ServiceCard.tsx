@@ -24,7 +24,7 @@ export default function ServiceCard({
       </span>
 
       <div className="relative">
-        <div className="mb-6 inline-flex rounded-xl border border-accent/30 bg-accent/10 p-3 text-accent">
+        <div className="mb-6 flex w-fit rounded-xl border border-accent/30 bg-accent/10 p-3 text-accent">
           <ServiceIcon index={index} />
         </div>
 
