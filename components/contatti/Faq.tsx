@@ -24,7 +24,7 @@ export default function Faq() {
                   className="flex w-full items-center justify-between gap-6 py-6 text-left"
                   aria-expanded={isOpen}
                 >
-                  <span className="font-display text-2xl uppercase tracking-wide text-ink">
+                  <span className="font-sans font-bold text-2xl tracking-tight text-gradient">
                     {faq.question}
                   </span>
                   <span

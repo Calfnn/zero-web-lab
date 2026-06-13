@@ -17,7 +17,7 @@ export default function LegalLayout({ label, title, lastUpdated, children }: Pro
       <section className="pb-24 md:pb-32">
         <div
           className="container-page max-w-3xl
-            [&_h2]:mt-12 [&_h2]:mb-4 [&_h2]:font-display [&_h2]:text-2xl [&_h2]:uppercase [&_h2]:tracking-wide [&_h2]:text-ink
+            [&_h2]:mt-12 [&_h2]:mb-4 [&_h2]:font-sans [&_h2]:font-bold [&_h2]:text-2xl [&_h2]:tracking-tight [&_h2]:text-ink
             [&_h3]:mt-8 [&_h3]:mb-3 [&_h3]:text-lg [&_h3]:font-semibold [&_h3]:text-ink
             [&_p]:mb-4 [&_p]:leading-relaxed [&_p]:text-muted
             [&_a]:text-accent [&_a]:underline [&_a]:underline-offset-2

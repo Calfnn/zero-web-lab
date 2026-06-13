@@ -3,10 +3,10 @@
 @tailwind utilities;
 
 :root {
-  --accent: #2C6BFF;
-  --accent-glow: rgba(44, 107, 255, 0.18);
-  --background: #ffffff;
-  --ink: #0a0a0a;
+  --accent: #8b5cf6;
+  --accent-glow: rgba(139, 92, 246, 0.30);
+  --background: #030303;
+  --ink: #ffffff;
 }
 
 * {
@@ -14,9 +14,26 @@
 }
 
 html {
-  scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Lenis smooth scroll — let the library own the scroll behavior */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
 }
 
 body {
@@ -92,19 +109,19 @@ body {
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #ffffff;
+  background: #030303;
 }
 ::-webkit-scrollbar-thumb {
-  background: #d8d8d8;
+  background: #2a2a30;
   border-radius: 999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #c2c2c2;
+  background: #3a3a42;
 }
 
 ::selection {
   background: var(--accent);
-  color: var(--ink);
+  color: #ffffff;
 }
 
 @layer components {
@@ -113,16 +130,32 @@ body {
   }
 
   .section-label {
-    @apply mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-ultra text-ink/60;
+    @apply mb-4 flex items-center gap-2 text-xs font-semibold uppercase tracking-ultra text-ink/60;
   }
 
   .display-heading {
-    @apply font-display uppercase leading-[0.9] tracking-wide;
+    @apply font-sans font-bold leading-[1.05] tracking-tight;
   }
 
-  /* Pill primary CTA — blue fill, dark text */
+  /* Brand gradient text — white → off-white → indigo → rose.
+     Applied to all titles (hero included) for a cohesive identity. */
+  .text-gradient {
+    display: inline-block;
+    background-image: linear-gradient(
+      to right,
+      #ffffff 0%,
+      #e2e2e6 30%,
+      #818cf8 68%,
+      #fb7185 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Pill primary CTA — brand gradient fill (indigo → rose), white text */
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-accent px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-ink transition-all duration-300 hover:shadow-[0_0_40px_var(--accent-glow)] hover:-translate-y-0.5;
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-indigo-500 to-rose-500 px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-white transition-all duration-300 hover:shadow-[0_0_40px_var(--accent-glow)] hover:-translate-y-0.5;
   }
 
   /* Ghost / outline CTA — dark outline */
@@ -151,10 +184,10 @@ body {
   .grid-lines {
     background-image: linear-gradient(
         to right,
-        rgba(44, 107, 255, 0.12) 1px,
+        rgba(139, 92, 246, 0.12) 1px,
         transparent 1px
       ),
-      linear-gradient(to bottom, rgba(44, 107, 255, 0.12) 1px, transparent 1px);
+      linear-gradient(to bottom, rgba(139, 92, 246, 0.12) 1px, transparent 1px);
     background-size: 64px 64px;
   }
 

@@ -26,7 +26,7 @@ export default function ProcessSteps() {
                   <span className="hidden flex-1 border-t border-dashed border-ink/20 lg:block" />
                 )}
               </div>
-              <h3 className="mt-4 font-display text-2xl uppercase tracking-wide text-ink">
+              <h3 className="mt-4 font-sans font-bold text-2xl tracking-tight text-gradient">
                 {step.title}
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-muted">

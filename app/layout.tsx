@@ -4,8 +4,9 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CustomCursor from "@/components/CustomCursor";
+import GeometricBackground from "@/components/GeometricBackground";
+import SmoothScroll from "@/components/SmoothScroll";
 import ScrollProgress from "@/components/ScrollProgress";
-import LoadingScreen from "@/components/LoadingScreen";
 import PageTransition from "@/components/PageTransition";
 
 const bebas = Bebas_Neue({
@@ -109,7 +110,9 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <LoadingScreen />
+        {/* Site-wide themed backdrop: faint floating shapes + gradient wash */}
+        <GeometricBackground variant="ambient" />
+        <SmoothScroll />
         <CustomCursor />
         <ScrollProgress />
         <Navbar />

@@ -34,7 +34,7 @@ export default function SectionHeading({
       <ScrambleText
         as="h2"
         text={title}
-        className="display-heading text-5xl text-ink sm:text-6xl md:text-7xl"
+        className="display-heading text-gradient text-5xl sm:text-6xl md:text-7xl"
       />
     </div>
   );

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import DotGrid from "@/components/DotGrid";
+import GeometricBackground from "@/components/GeometricBackground";
 import ScrambleText from "@/components/ScrambleText";
 
 type Props = {
@@ -14,16 +14,12 @@ type Props = {
 export default function PageHero({ label, title, subtitle }: Props) {
   return (
     <section className="relative overflow-hidden pt-40 pb-20 md:pt-48 md:pb-28">
-      <DotGrid
-        className="absolute inset-0 -z-10 h-full w-full"
-        opacity={0.55}
-        fadeBottom
-      />
+      <GeometricBackground variant="section" />
       <div
         className="pointer-events-none absolute -top-40 right-0 -z-10 h-[400px] w-[400px] rounded-full bg-accent opacity-20 blur-[150px]"
         aria-hidden
       />
-      <div className="container-page">
+      <div className="container-page relative z-10">
         {label && (
           <motion.p
             initial={{ opacity: 0 }}
@@ -36,8 +32,8 @@ export default function PageHero({ label, title, subtitle }: Props) {
         <ScrambleText
           as="h1"
           text={title}
-          className="block font-display uppercase leading-[0.85] tracking-wide text-ink"
-          style={{ fontSize: "clamp(48px, 9vw, 120px)", letterSpacing: "0.03em" }}
+          className="font-sans font-bold leading-[1.02] text-gradient"
+          style={{ fontSize: "clamp(48px, 9vw, 120px)", letterSpacing: "-0.02em" }}
         />
         {subtitle && (
           <motion.p

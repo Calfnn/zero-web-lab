@@ -37,7 +37,7 @@ export default function Testimonials() {
                 {current.quote}
               </p>
               <footer className="mt-8">
-                <p className="font-display text-2xl uppercase tracking-wide text-accent">
+                <p className="font-sans font-bold text-2xl tracking-tight text-accent">
                   {current.name}
                 </p>
                 <p className="mt-1 text-sm text-muted">{current.role}</p>

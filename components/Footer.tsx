@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { contactInfo } from "@/lib/data";
-import LogoMark from "./LogoMark";
 
 const columns = [
   {
@@ -32,7 +31,7 @@ const columns = [
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-ink/10 bg-background">
+    <footer className="relative border-t border-ink/10">
       {/* Gradient top border */}
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent to-transparent" />
 
@@ -41,12 +40,11 @@ export default function Footer() {
           <div className="max-w-xs">
             <Link
               href="/"
-              className="inline-flex items-center gap-3 text-ink"
+              aria-label="Zero Web Lab — Home"
+              className="inline-flex items-center transition-opacity hover:opacity-80"
             >
-              <LogoMark className="h-8 w-8 shrink-0" />
-              <span className="font-display text-2xl uppercase tracking-ultra">
-                ZERO<span className="text-accent">.</span>WEB LAB
-              </span>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/logo-wide.svg" alt="Zero Web Lab" className="h-10 w-auto" />
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-muted">
               Trasformiamo idee in esperienze digitali memorabili. Web design,

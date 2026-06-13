@@ -26,14 +26,14 @@ function ProjectCard({
         label={project.title.split(" ")[0]}
         className="absolute inset-0 h-full w-full transition-transform duration-700 group-hover:scale-105"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
 
       <div className="relative flex h-full flex-col justify-end p-6">
         <span className="mb-3 inline-flex w-fit rounded-full border border-accent/40 bg-accent/10 px-3 py-1 text-xs uppercase tracking-wide text-accent">
           {project.category}
         </span>
         <h3
-          className={`font-display uppercase tracking-wide text-white ${
+          className={`font-sans font-bold tracking-tight text-gradient ${
             large ? "text-4xl md:text-5xl" : "text-2xl"
           }`}
         >

@@ -72,10 +72,10 @@ function ProjectTile({ project, index }: { project: Project; index: number }) {
   return (
     <motion.article
       layout
-      initial={{ opacity: 0, scale: 0.9 }}
-      animate={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 0, scale: 0.9 }}
-      transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+      initial={{ opacity: 0, y: 80 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 30 }}
+      transition={{ duration: 1.1, delay: index * 0.06, ease: [0.23, 0.86, 0.39, 0.96] }}
       className={`group relative overflow-hidden rounded-2xl border border-white/10 ${
         tall ? "sm:row-span-2" : ""
       }`}
@@ -84,7 +84,7 @@ function ProjectTile({ project, index }: { project: Project; index: number }) {
         label={project.title.split(" ")[0]}
         className="absolute inset-0 h-full w-full transition-transform duration-700 group-hover:scale-105"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/30 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
 
       <div className="relative flex h-full flex-col justify-end p-6">
         <div className="flex items-center gap-3">
@@ -93,7 +93,7 @@ function ProjectTile({ project, index }: { project: Project; index: number }) {
           </span>
           <span className="text-xs text-muted">{project.year}</span>
         </div>
-        <h3 className="mt-3 font-display text-3xl uppercase tracking-wide text-white">
+        <h3 className="mt-3 font-sans font-bold text-3xl tracking-tight text-gradient">
           {project.title}
         </h3>
 

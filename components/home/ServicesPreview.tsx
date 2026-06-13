@@ -32,10 +32,10 @@ export default function ServicesPreview() {
           {previews.map((item, i) => (
             <motion.div
               key={item.num}
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 80 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
-              transition={{ delay: i * 0.12, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ delay: i * 0.15, duration: 1.3, ease: [0.23, 0.86, 0.39, 0.96] }}
             >
               <Link
                 href="/servizi"
@@ -47,7 +47,7 @@ export default function ServicesPreview() {
                 </span>
 
                 <div className="relative">
-                  <h3 className="font-display text-3xl uppercase tracking-wide text-ink">
+                  <h3 className="font-sans font-bold text-3xl tracking-tight text-gradient">
                     {item.title}
                   </h3>
                   <p className="mt-4 text-sm leading-relaxed text-muted">

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import type Lenis from "lenis";
 import { navLinks } from "@/lib/data";
 import Logo from "./Logo";
 
@@ -24,48 +25,55 @@ export default function Navbar() {
     setOpen(false);
   }, [pathname]);
 
-  // Lock scroll when mobile menu is open
+  // Lock scroll when mobile menu is open (also pause Lenis smooth scroll)
   useEffect(() => {
+    const lenis = (window as unknown as { lenis?: Lenis }).lenis;
     document.body.style.overflow = open ? "hidden" : "";
+    if (open) lenis?.stop();
+    else lenis?.start();
     return () => {
       document.body.style.overflow = "";
+      lenis?.start();
     };
   }, [open]);
 
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-        scrolled || open
-          ? "border-b border-ink/10 bg-background/80 backdrop-blur-xl"
-          : "border-b border-transparent bg-transparent"
-      }`}
-    >
-      <nav className="container-page flex h-20 items-center justify-between">
+    <header className="fixed inset-x-0 top-3 z-50 px-3 md:top-4 md:px-4">
+      <nav
+        className={`mx-auto flex h-14 max-w-[1140px] items-center justify-between rounded-full border pl-5 pr-3 backdrop-blur-xl transition-all duration-300 md:h-16 ${
+          scrolled || open
+            ? "border-white/15 bg-white/[0.06] shadow-[0_8px_32px_rgba(0,0,0,0.45)]"
+            : "border-white/10 bg-white/[0.03]"
+        }`}
+      >
         <Logo />
 
-        {/* Desktop links */}
-        <ul className="hidden items-center gap-8 md:flex">
+        {/* Desktop links — pill items */}
+        <ul className="hidden items-center gap-1 md:flex">
           {navLinks.map((link) => {
             const active = pathname === link.href;
             return (
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="group relative text-sm font-medium uppercase tracking-wide text-ink/80 transition-colors hover:text-ink"
+                  className={`block rounded-full px-4 py-2 text-sm font-medium uppercase tracking-wide transition-colors duration-200 ${
+                    active
+                      ? "bg-white/10 text-ink"
+                      : "text-ink/70 hover:bg-white/5 hover:text-ink"
+                  }`}
                 >
                   {link.label}
-                  <span
-                    className={`absolute -bottom-1.5 left-0 h-0.5 bg-accent transition-all duration-300 ${
-                      active ? "w-full" : "w-0 group-hover:w-full"
-                    }`}
-                  />
                 </Link>
               </li>
             );
           })}
         </ul>
 
-        <Link href="/contatti" className="btn-ghost hidden border-accent text-accent hover:bg-accent hover:text-ink md:inline-flex">
+        {/* Desktop CTA — brand gradient pill */}
+        <Link
+          href="/contatti"
+          className="hidden items-center rounded-full bg-gradient-to-r from-indigo-500 to-rose-500 px-5 py-2.5 text-sm font-bold uppercase tracking-wide text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_30px_var(--accent-glow)] md:inline-flex"
+        >
           Iniziamo
         </Link>
 
@@ -117,7 +125,7 @@ export default function Navbar() {
                   >
                     <Link
                       href={link.href}
-                      className={`font-display text-5xl uppercase tracking-wide transition-colors ${
+                      className={`font-sans font-bold text-5xl tracking-tight transition-colors ${
                         active ? "text-accent" : "text-ink"
                       }`}
                     >

@@ -13,10 +13,10 @@ export default function ServiceCard({
 }) {
   return (
     <motion.article
-      initial={{ opacity: 0, y: 40 }}
+      initial={{ opacity: 0, y: 80 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
-      transition={{ delay: (index % 3) * 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ delay: (index % 3) * 0.15, duration: 1.3, ease: [0.23, 0.86, 0.39, 0.96] }}
       className="group relative overflow-hidden rounded-2xl border border-ink/10 bg-surface p-8 transition-all duration-300 hover:border-accent hover:shadow-[0_0_50px_var(--accent-glow)]"
     >
       <span className="pointer-events-none absolute -right-2 -top-6 font-display text-[110px] leading-none text-accent opacity-[0.06] transition-opacity duration-300 group-hover:opacity-15">
@@ -28,7 +28,7 @@ export default function ServiceCard({
           <ServiceIcon index={index} />
         </div>
 
-        <h3 className="font-display text-3xl uppercase tracking-wide text-ink">
+        <h3 className="font-sans font-bold text-3xl tracking-tight text-gradient">
           {service.title}
         </h3>
         <p className="mt-3 text-sm leading-relaxed text-muted">

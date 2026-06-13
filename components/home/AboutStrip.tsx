@@ -16,8 +16,8 @@ export default function AboutStrip() {
       <div className="container-page grid gap-12 lg:grid-cols-2 lg:items-center">
         <Reveal>
           <p className="section-label">/ Chi siamo</p>
-          <h2 className="font-display text-4xl uppercase leading-[0.95] tracking-wide text-ink md:text-5xl">
-            <ScrambleText as="span" text="Siamo Zero Web Lab." />
+          <h2 className="font-sans font-bold text-4xl leading-[1.05] tracking-tight text-ink md:text-5xl">
+            <ScrambleText as="span" className="text-gradient" text="Siamo Zero Web Lab." />
             <span className="block text-muted">
               Trasformiamo idee in esperienze digitali memorabili.
             </span>

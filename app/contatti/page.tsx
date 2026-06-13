@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import ContactForm from "@/components/contatti/ContactForm";
 import Faq from "@/components/contatti/Faq";
-import DotGrid from "@/components/DotGrid";
+import GeometricBackground from "@/components/GeometricBackground";
+import CardReveal from "@/components/CardReveal";
 import ScrambleText from "@/components/ScrambleText";
 import { contactInfo } from "@/lib/data";
 
@@ -15,24 +16,20 @@ export default function ContattiPage() {
   return (
     <>
       <section className="relative overflow-hidden pt-40 pb-24 md:pt-48">
-        {/* Decorative dot-grid background */}
-        <DotGrid
-          className="absolute inset-0 -z-10 h-full w-full"
-          opacity={0.55}
-          fadeBottom
-        />
+        {/* Decorative floating-shapes background */}
+        <GeometricBackground variant="section" />
         <div
           className="pointer-events-none absolute -left-32 top-20 -z-10 h-[400px] w-[400px] rounded-full bg-accent opacity-20 blur-[150px]"
           aria-hidden
         />
 
-        <div className="container-page grid gap-16 lg:grid-cols-2">
+        <div className="container-page relative z-10 grid gap-16 lg:grid-cols-2">
           {/* Left: info */}
           <div>
             <p className="section-label">/ Contatti</p>
             <h1
-              className="font-display uppercase leading-[0.85] tracking-wide text-ink"
-              style={{ fontSize: "clamp(56px, 10vw, 130px)", letterSpacing: "0.03em" }}
+              className="font-sans font-bold leading-[1.02] text-gradient"
+              style={{ fontSize: "clamp(56px, 10vw, 130px)", letterSpacing: "-0.02em" }}
             >
               <ScrambleText as="span" text="Parliamo" />
               <span className="text-accent">.</span>
@@ -47,14 +44,14 @@ export default function ContattiPage() {
                 <p className="text-xs uppercase tracking-ultra text-accent">Email</p>
                 <a
                   href={`mailto:${contactInfo.email}`}
-                  className="font-display text-2xl uppercase tracking-wide text-ink transition-colors hover:text-accent"
+                  className="font-sans font-bold text-2xl tracking-tight text-gradient transition-colors hover:text-accent"
                 >
                   {contactInfo.email}
                 </a>
               </div>
               <div>
                 <p className="text-xs uppercase tracking-ultra text-accent">Sede</p>
-                <p className="font-display text-2xl uppercase tracking-wide text-ink">
+                <p className="font-sans font-bold text-2xl tracking-tight text-gradient">
                   {contactInfo.address}
                 </p>
               </div>
@@ -76,12 +73,12 @@ export default function ContattiPage() {
           </div>
 
           {/* Right: form */}
-          <div className="rounded-3xl border border-ink/10 bg-surface p-8 md:p-10">
-            <h2 className="mb-8 font-display text-3xl uppercase tracking-wide text-ink">
+          <CardReveal className="rounded-3xl border border-ink/10 bg-surface p-8 md:p-10">
+            <h2 className="mb-8 font-sans font-bold text-3xl tracking-tight text-gradient">
               Scrivici
             </h2>
             <ContactForm />
-          </div>
+          </CardReveal>
         </div>
       </section>
 

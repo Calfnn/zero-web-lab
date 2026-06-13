@@ -9,22 +9,22 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Light theme: white page, blue accent, near-black ink for text.
-        background: "#FFFFFF",
+        // Dark theme: near-black page (#030303), indigo accent, white ink for text.
+        background: "#030303",
         surface: {
-          DEFAULT: "#F4F4F4",
-          light: "#ECECEC",
+          DEFAULT: "#0E0E11",
+          light: "#17171B",
         },
-        // Dark tone for text and the "photo" tiles that stay dark on the light page.
+        // "ink" is the primary foreground (text + UI lines) on the dark page.
         ink: {
-          DEFAULT: "#0A0A0A",
-          soft: "#1A1A1A",
+          DEFAULT: "#FFFFFF",
+          soft: "#D4D4D8",
         },
         accent: {
-          DEFAULT: "#2C6BFF",
-          glow: "rgba(44, 107, 255, 0.18)",
+          DEFAULT: "#8B5CF6",
+          glow: "rgba(139, 92, 246, 0.30)",
         },
-        muted: "#555555",
+        muted: "#9CA3AF",
       },
       fontFamily: {
         display: ["var(--font-bebas)", "Impact", "sans-serif"],

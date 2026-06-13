@@ -1,17 +1,21 @@
 import Link from "next/link";
-import LogoMark from "./LogoMark";
 
 export default function Logo({ className = "" }: { className?: string }) {
   return (
     <Link
       href="/"
       aria-label="Zero Web Lab — Home"
-      className={`group inline-flex items-center gap-3 text-ink transition-opacity hover:opacity-80 ${className}`}
+      className={`inline-flex items-center transition-opacity hover:opacity-80 ${className}`}
     >
-      <LogoMark className="h-8 w-8 shrink-0" />
-      <span className="font-display text-2xl uppercase tracking-ultra">
-        ZERO<span className="text-accent">.</span>WEB LAB
-      </span>
+      {/* New brand mark (lettermark "ZERO" with gradient "o") */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      {/* Horizontal brand lockup (~5:1) — sized by height, width auto */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/logo-wide.svg"
+        alt="Zero Web Lab"
+        className="h-8 w-auto shrink-0 md:h-9"
+      />
     </Link>
   );
 }

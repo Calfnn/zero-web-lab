@@ -1,5 +1,4 @@
-import Hero from "@/components/home/Hero";
-import Marquee from "@/components/Marquee";
+import HeroGeometric from "@/components/home/HeroGeometric";
 import AboutStrip from "@/components/home/AboutStrip";
 import ServicesPreview from "@/components/home/ServicesPreview";
 import FeaturedProjects from "@/components/home/FeaturedProjects";
@@ -9,8 +8,7 @@ import CTAStrip from "@/components/home/CTAStrip";
 export default function HomePage() {
   return (
     <>
-      <Hero />
-      <Marquee />
+      <HeroGeometric />
       <AboutStrip />
       <ServicesPreview />
       <FeaturedProjects />
