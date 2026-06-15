@@ -169,7 +169,7 @@ export const faqs = [
       "Sì. Proponiamo piani di manutenzione e supporto continuativo per aggiornamenti, sicurezza e nuove funzionalità.",
   },
   {
-    question: "Lavorate con clienti fuori Torino?",
+    question: "Lavorate con clienti fuori Cuneo?",
     answer:
       "Assolutamente. Collaboriamo con clienti in tutta Italia e all'estero, gestendo l'intero processo da remoto in modo fluido.",
   },
@@ -184,7 +184,7 @@ export const navLinks = [
 
 export const contactInfo = {
   email: "zeroweblab@gmail.com",
-  address: "Torino, Piemonte",
+  address: "Cuneo, Piemonte",
   socials: [
     { label: "Instagram", href: "https://instagram.com/zeroweblab" },
   ],

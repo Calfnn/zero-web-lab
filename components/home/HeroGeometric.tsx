@@ -6,7 +6,7 @@ import GeometricBackground from "@/components/GeometricBackground";
 export default function HeroGeometric({
   badge = "Zero Web Lab",
   title1 = "Progettiamo il tuo",
-  title2 = "mondo digitale",
+  title2 = "Mondo Digitale",
 }: {
   badge?: string;
   title1?: string;
@@ -52,11 +52,11 @@ export default function HeroGeometric({
             animate="visible"
           >
             <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold mb-6 md:mb-8 tracking-tight">
-              <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-white/80">
+              <span className="bg-clip-text text-transparent bg-[linear-gradient(to_right,#ffffff_0%,#e2e2e6_30%,#818cf8_68%,#fb7185_100%)]">
                 {title1}
               </span>
               <br />
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-300 via-white/90 to-rose-300">
+              <span className="bg-clip-text text-transparent bg-[linear-gradient(to_right,#ffffff_0%,#e2e2e6_30%,#818cf8_68%,#fb7185_100%)]">
                 {title2}
               </span>
             </h1>
@@ -69,7 +69,7 @@ export default function HeroGeometric({
             animate="visible"
           >
             <p className="text-base sm:text-lg md:text-xl text-white/40 mb-8 leading-relaxed font-light tracking-wide max-w-xl mx-auto px-4">
-              Siti web, brand identity ed esperienze digitali che convertono.
+              Siti web, Landing ed esperienze digitali che convertono.
             </p>
           </motion.div>
         </div>

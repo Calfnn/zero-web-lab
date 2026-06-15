@@ -62,20 +62,30 @@ export default function FeaturedProjects() {
           </Link>
         </div>
 
-        {/* Asymmetric bento grid */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-16 grid gap-6 lg:grid-cols-3 lg:grid-rows-2"
-        >
-          <div className="lg:col-span-2 lg:row-span-2">
-            <ProjectCard project={featured[0]} large />
+        {/* Asymmetric bento grid — sfocata: progetti reali in arrivo */}
+        <div className="relative mt-16">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="grid gap-6 select-none blur-[7px] pointer-events-none lg:grid-cols-3 lg:grid-rows-2"
+            aria-hidden
+          >
+            <div className="lg:col-span-2 lg:row-span-2">
+              <ProjectCard project={featured[0]} large />
+            </div>
+            <ProjectCard project={featured[1]} />
+            <ProjectCard project={featured[2]} />
+          </motion.div>
+
+          {/* Etichetta in chiaro sopra alla griglia sfocata */}
+          <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+            <span className="rounded-full border border-accent/30 bg-background/60 px-5 py-2 text-sm font-medium tracking-wide text-ink backdrop-blur-sm">
+              Presto Disponibili
+            </span>
           </div>
-          <ProjectCard project={featured[1]} />
-          <ProjectCard project={featured[2]} />
-        </motion.div>
+        </div>
       </div>
     </section>
   );

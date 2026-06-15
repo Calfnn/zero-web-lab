@@ -43,9 +43,17 @@ export default function SmoothScroll() {
   // On every route change, jump back to the top of the new page. Lenis keeps its
   // own scroll state, so without this it would keep the previous page's offset.
   useEffect(() => {
-    const lenis = lenisRef.current;
-    if (lenis) lenis.scrollTo(0, { immediate: true });
-    else window.scrollTo(0, 0);
+    const reset = () => {
+      const lenis = lenisRef.current;
+      // `force` bypasses a stopped/locked Lenis (e.g. after the mobile menu).
+      if (lenis) lenis.scrollTo(0, { immediate: true, force: true });
+      window.scrollTo(0, 0);
+    };
+    reset();
+    // Run again after the new page has painted: on mobile the layout/height
+    // often isn't ready on the first pass, so the first jump gets ignored.
+    const raf = requestAnimationFrame(reset);
+    return () => cancelAnimationFrame(raf);
   }, [pathname]);
 
   return null;

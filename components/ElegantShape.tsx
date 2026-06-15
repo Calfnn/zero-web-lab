@@ -55,9 +55,12 @@ export default function ElegantShape({
         }}
         className="relative"
       >
+        {/* Scale the pill down on mobile (desktop unchanged). Applied to this
+            (non-motion) element so it doesn't clash with framer-motion's
+            transform, and adds no extra node to keep SSR hydration in sync. */}
         <div
           className={cn(
-            "absolute inset-0 rounded-full",
+            "absolute inset-0 origin-top-left rounded-full scale-[0.45] sm:scale-75 md:scale-100",
             "bg-gradient-to-r to-transparent",
             gradient,
             "backdrop-blur-[2px] border-2 border-white/[0.15]",

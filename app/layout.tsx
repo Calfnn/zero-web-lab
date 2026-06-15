@@ -27,7 +27,7 @@ const dmSans = DM_Sans({
 const siteUrl = "https://zeroweblab.it";
 
 // Structured data: tells Google this is a real business entity (helps brand
-// search, local SEO for Torino, and rich results).
+// search, local SEO for Cuneo, and rich results).
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
@@ -35,11 +35,11 @@ const jsonLd = {
   url: siteUrl,
   image: `${siteUrl}/og.png`,
   description:
-    "Agenzia di web design a Torino: siti web, brand identity ed esperienze digitali che convertono.",
+    "Agenzia di web design a Cuneo: siti web, brand identity ed esperienze digitali che convertono.",
   email: "zeroweblab@gmail.com",
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Torino",
+    addressLocality: "Cuneo",
     addressRegion: "Piemonte",
     addressCountry: "IT",
   },
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     template: "%s — Zero Web Lab",
   },
   description:
-    "Zero Web Lab è l'agenzia di web design che progetta siti web, brand identity ed esperienze digitali che convertono. Torino, IT.",
+    "Zero Web Lab | Progettiamo Siti Web, Landing Page ed Esperienze Digitali che convertono. Cuneo, IT.",
   keywords: [
     "siti vetrina",
     "landing page",
@@ -64,9 +64,9 @@ export const metadata: Metadata = {
     "pagina Google",
     "Google Business Profile",
     "manutenzione sito",
-    "agenzia web Torino",
-    "web design Torino",
-    "Torino",
+    "agenzia web Cuneo",
+    "web design Cuneo",
+    "Cuneo",
     "Zero Web Lab",
   ],
   authors: [{ name: "Zero Web Lab" }],
@@ -78,13 +78,13 @@ export const metadata: Metadata = {
     siteName: "Zero Web Lab",
     title: "Zero Web Lab — Web Design & Brand Identity",
     description:
-      "Progettiamo siti web, brand identity ed esperienze digitali che convertono.",
+      "Zero Web Lab | Progettiamo Siti Web, Landing Page ed Esperienze Digitali che convertono. Cuneo, IT.",
   },
   twitter: {
     card: "summary_large_image",
     title: "Zero Web Lab — Web Design & Brand Identity",
     description:
-      "Progettiamo siti web, brand identity ed esperienze digitali che convertono.",
+      "Zero Web Lab | Progettiamo Siti Web, Landing Page ed Esperienze Digitali che convertono. Cuneo, IT.",
   },
   robots: {
     index: true,

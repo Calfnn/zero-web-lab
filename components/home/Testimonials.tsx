@@ -33,15 +33,25 @@ export default function Testimonials() {
               transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
               className="relative text-center"
             >
-              <p className="text-balance text-2xl font-light italic leading-relaxed text-ink md:text-3xl">
-                {current.quote}
-              </p>
-              <footer className="mt-8">
-                <p className="font-sans font-bold text-2xl tracking-tight text-accent">
-                  {current.name}
+              {/* Contenuto sfocato: recensioni reali in arrivo */}
+              <div className="select-none blur-[7px]" aria-hidden>
+                <p className="text-balance text-2xl font-light italic leading-relaxed text-ink md:text-3xl">
+                  {current.quote}
                 </p>
-                <p className="mt-1 text-sm text-muted">{current.role}</p>
-              </footer>
+                <footer className="mt-8">
+                  <p className="font-sans font-bold text-2xl tracking-tight text-accent">
+                    {current.name}
+                  </p>
+                  <p className="mt-1 text-sm text-muted">{current.role}</p>
+                </footer>
+              </div>
+
+              {/* Etichetta in chiaro sopra al contenuto sfocato */}
+              <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+                <span className="rounded-full border border-accent/30 bg-background/60 px-5 py-2 text-sm font-medium tracking-wide text-ink backdrop-blur-sm">
+                  Presto Disponibili
+                </span>
+              </div>
             </motion.blockquote>
           </AnimatePresence>
 

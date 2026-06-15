@@ -48,7 +48,7 @@ export default function Footer() {
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-muted">
               Trasformiamo idee in esperienze digitali memorabili. Web design,
-              brand identity e sviluppo da Torino per tutto il mondo.
+              brand identity e sviluppo da Cuneo per tutto il mondo.
             </p>
           </div>
 

@@ -47,19 +47,29 @@ export default function ProjectsGrid() {
           })}
         </div>
 
-        {/* Masonry-ish grid with layout animation */}
-        <LayoutGroup>
-          <motion.div
-            layout
-            className="grid auto-rows-[260px] grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
-          >
-            <AnimatePresence mode="popLayout">
-              {visible.map((project, i) => (
-                <ProjectTile key={project.title} project={project} index={i} />
-              ))}
-            </AnimatePresence>
-          </motion.div>
-        </LayoutGroup>
+        {/* Masonry-ish grid with layout animation — sfocata: progetti reali in arrivo */}
+        <div className="relative">
+          <LayoutGroup>
+            <motion.div
+              layout
+              className="grid auto-rows-[260px] grid-cols-1 gap-6 select-none blur-[7px] pointer-events-none sm:grid-cols-2 lg:grid-cols-3"
+              aria-hidden
+            >
+              <AnimatePresence mode="popLayout">
+                {visible.map((project, i) => (
+                  <ProjectTile key={project.title} project={project} index={i} />
+                ))}
+              </AnimatePresence>
+            </motion.div>
+          </LayoutGroup>
+
+          {/* Etichetta in chiaro sopra alla griglia sfocata */}
+          <div className="pointer-events-none absolute inset-0 flex items-start justify-center pt-32">
+            <span className="rounded-full border border-accent/30 bg-background/60 px-6 py-3 text-base font-medium tracking-wide text-ink backdrop-blur-sm">
+              Presto Disponibili
+            </span>
+          </div>
+        </div>
       </div>
     </section>
   );
