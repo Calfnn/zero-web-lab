@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: "Servizi",
   description:
     "Siti vetrina e landing page, siti web su misura, creazione e gestione pagina Google, manutenzione e supporto: tutti i servizi di Zero Web Lab.",
+  alternates: { canonical: "/servizi" },
 };
 
 export default function ServiziPage() {

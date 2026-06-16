@@ -27,25 +27,46 @@ const dmSans = DM_Sans({
 const siteUrl = "https://zeroweblab.it";
 
 // Structured data: tells Google this is a real business entity (helps brand
-// search, local SEO for Cuneo, and rich results).
+// search, local SEO for Cuneo, and rich results). A @graph links the website
+// and the organization so Google can build a single coherent brand entity.
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  name: "Zero Web Lab",
-  url: siteUrl,
-  image: `${siteUrl}/og.png`,
-  description:
-    "Agenzia di web design a Cuneo: siti web, brand identity ed esperienze digitali che convertono.",
-  email: "zeroweblab@gmail.com",
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Cuneo",
-    addressRegion: "Piemonte",
-    addressCountry: "IT",
-  },
-  areaServed: "IT",
-  sameAs: ["https://instagram.com/zeroweblab"],
-  knowsAbout: ["Web Design", "Siti Web", "Brand Identity", "SEO", "Landing Page"],
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
+      url: siteUrl,
+      name: "Zero Web Lab",
+      inLanguage: "it-IT",
+      publisher: { "@id": `${siteUrl}/#organization` },
+    },
+    {
+      "@type": ["ProfessionalService", "Organization"],
+      "@id": `${siteUrl}/#organization`,
+      name: "Zero Web Lab",
+      url: siteUrl,
+      logo: `${siteUrl}/opengraph-image`,
+      image: `${siteUrl}/opengraph-image`,
+      description:
+        "Agenzia di web design a Cuneo: siti web, brand identity ed esperienze digitali che convertono.",
+      email: "zeroweblab@gmail.com",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Cuneo",
+        addressRegion: "Piemonte",
+        addressCountry: "IT",
+      },
+      areaServed: "IT",
+      sameAs: ["https://instagram.com/zeroweblab"],
+      knowsAbout: [
+        "Web Design",
+        "Siti Web",
+        "Brand Identity",
+        "SEO",
+        "Landing Page",
+      ],
+    },
+  ],
 };
 
 export const metadata: Metadata = {
@@ -94,7 +115,9 @@ export const metadata: Metadata = {
     google: "das8riPrvp4EmS7w34KkWifskeT6gJiSX-RC4fEUv9w",
   },
   alternates: {
-    canonical: siteUrl,
+    // Home canonical. NOTE: every route must set its own canonical, otherwise
+    // it inherits this one and tells Google the page duplicates the homepage.
+    canonical: "/",
   },
 };
 

@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Cookie Policy",
   description:
     "Informativa sull'uso dei cookie del sito Zero Web Lab. Il sito non utilizza cookie di profilazione né strumenti di tracciamento.",
+  alternates: { canonical: "/cookie-policy" },
 };
 
 export default function CookiePolicyPage() {

@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
     "Informativa sul trattamento dei dati personali di Zero Web Lab ai sensi del Regolamento UE 2016/679 (GDPR).",
+  alternates: { canonical: "/privacy-policy" },
 };
 
 export default function PrivacyPolicyPage() {

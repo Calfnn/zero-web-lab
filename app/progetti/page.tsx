@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Progetti",
   description:
     "Una selezione dei progetti realizzati da Zero Web Lab: siti vetrina, siti su misura e brand identity.",
+  alternates: { canonical: "/progetti" },
 };
 
 export default function ProgettiPage() {

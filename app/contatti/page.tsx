@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: "Contatti",
   description:
     "Parliamo del tuo prossimo progetto. Contatta Zero Web Lab a Cuneo per siti vetrina, siti su misura, pagina Google e supporto.",
+  alternates: { canonical: "/contatti" },
 };
 
 export default function ContattiPage() {
