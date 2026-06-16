@@ -5,7 +5,7 @@ import { AnimatePresence, motion, LayoutGroup } from "framer-motion";
 import Placeholder from "@/components/Placeholder";
 import { projects, type Project } from "@/lib/data";
 
-const filters = ["Tutti", "Sito Vetrina", "Sito su Misura", "Branding"] as const;
+const filters = ["Tutti", "Landing Page", "Vetrina", "Custom"] as const;
 type Filter = (typeof filters)[number];
 
 export default function ProjectsGrid() {

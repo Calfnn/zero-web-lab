@@ -35,12 +35,12 @@ export default function ServiceCard({
           {service.description}
         </p>
 
-        {/* Bullet list expands on hover */}
-        <ul className="mt-5 max-h-0 space-y-2 overflow-hidden opacity-0 transition-all duration-500 group-hover:max-h-48 group-hover:opacity-100">
+        {/* Feature list — always visible: these features are the offer itself */}
+        <ul className="mt-6 space-y-3 border-t border-ink/10 pt-6">
           {service.bullets.map((b) => (
-            <li key={b} className="flex items-center gap-2 text-sm text-ink/90">
-              <span className="text-accent">→</span>
-              {b}
+            <li key={b} className="flex items-start gap-2.5 text-sm text-ink/90">
+              <span className="mt-0.5 shrink-0 text-accent">→</span>
+              <span>{b}</span>
             </li>
           ))}
         </ul>

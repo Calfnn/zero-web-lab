@@ -151,6 +151,11 @@ body {
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+    /* inline-block + background-clip:text + tight line-height clips glyph
+       descenders (g, p, j) in Chrome. A touch of vertical padding keeps the
+       descenders inside the box; negative margin cancels the layout shift. */
+    padding-bottom: 0.12em;
+    margin-bottom: -0.12em;
   }
 
   /* Pill primary CTA — brand gradient fill (indigo → rose), white text */

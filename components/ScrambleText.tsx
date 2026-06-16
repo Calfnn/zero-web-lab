@@ -21,9 +21,8 @@ type Props = {
   duration?: number;
 };
 
-// Text that "decodes" with a scramble effect. Triggers:
-//   - the first time it scrolls into view,
-//   - and on hover.
+// Text that "decodes" with a scramble effect. Triggers once, the first time it
+// scrolls into view (or on page load if already visible). No hover/tap re-trigger.
 export default function ScrambleText({
   text,
   className = "",
@@ -79,7 +78,6 @@ export default function ScrambleText({
       className={className}
       style={style}
       aria-label={text}
-      onMouseEnter={scramble}
     >
       {display}
     </Tag>

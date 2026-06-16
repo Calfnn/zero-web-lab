@@ -12,41 +12,51 @@ export type Service = {
 export const services: Service[] = [
   {
     num: "01",
-    title: "Siti Vetrina & Landing Page",
-    short: "La tua presenza online, curata nei dettagli.",
+    title: "Landing Page",
+    short: "Una pagina che converte.",
     description:
-      "Progettiamo siti vetrina e landing page veloci ed efficaci, pensate per presentare la tua attività e convertire i visitatori in clienti.",
-    bullets: ["Design su misura", "Ottimizzati per mobile", "Veloci e leggeri", "Pronti a convertire"],
+      "Una pagina unica e d'impatto per presentare la tua attività e trasformare i visitatori in contatti.",
+    bullets: [
+      "1 pagina completa (hero, servizi, contatti, gallery/FAQ/recensioni)",
+      "Mobile responsive",
+      "Form contatti base via email",
+      "Collegamento WhatsApp e telefono",
+      "SEO base",
+    ],
   },
   {
     num: "02",
-    title: "Siti Web su Misura",
-    short: "Progetti più elaborati e funzionalità avanzate.",
+    title: "Sito Vetrina",
+    short: "La tua presenza completa online.",
     description:
-      "Sviluppiamo siti web complessi e personalizzati: aree riservate, integrazioni, contenuti dinamici e tutto ciò che serve al tuo progetto.",
-    bullets: ["Funzionalità avanzate", "Integrazioni su misura", "Contenuti dinamici", "Scalabili nel tempo"],
+      "Un sito multi-pagina per raccontare chi sei, cosa offri e farti trovare, curato in ogni dettaglio.",
+    bullets: [
+      "4–6 pagine (Home, Chi siamo, Servizi, Contatti, ecc.)",
+      "Mobile responsive",
+      "Modulo contatti",
+      "Integrazione social",
+      "SEO completa",
+      "Piccole modifiche mensili incluse",
+    ],
   },
   {
     num: "03",
-    title: "Google My Business",
-    short: "Creazione e gestione del tuo profilo Google.",
+    title: "Sito Custom",
+    short: "Funzionalità su misura, senza limiti.",
     description:
-      "Creiamo e gestiamo la tua scheda Google Business Profile per farti trovare su Ricerca e Maps, con informazioni sempre aggiornate.",
-    bullets: ["Creazione profilo", "Ottimizzazione scheda", "SEO", "Aggiornamenti costanti"],
-  },
-  {
-    num: "04",
-    title: "Manutenzione & Supporto",
-    short: "Il tuo sito sempre al top.",
-    description:
-      "Aggiornamenti, monitoraggio e assistenza continua per mantenere il progetto sicuro, veloce e aggiornato nel tempo.",
-    bullets: ["Aggiornamenti", "Backup & sicurezza", "Monitoraggio uptime", "Supporto dedicato"],
+      "Tutto il Sito Vetrina, più funzionalità avanzate e integrazioni costruite intorno al tuo progetto.",
+    bullets: [
+      "Tutto ciò che include il Sito Vetrina",
+      "Funzionalità custom (login, database, area admin, prenotazioni…)",
+      "Integrazione API e sistemi esterni",
+      "Assistenza prioritaria",
+    ],
   },
 ];
 
 export type Project = {
   title: string;
-  category: "Sito Vetrina" | "Sito su Misura" | "Branding";
+  category: "Landing Page" | "Vetrina" | "Custom";
   year: string;
   description: string;
 };
@@ -54,49 +64,49 @@ export type Project = {
 export const projects: Project[] = [
   {
     title: "Nordic Atelier",
-    category: "Sito Vetrina",
+    category: "Vetrina",
     year: "2025",
     description: "Sito vetrina per studio di architettura scandinavo.",
   },
   {
     title: "Verde Market",
-    category: "Sito Vetrina",
+    category: "Vetrina",
     year: "2025",
     description: "Sito vetrina per azienda agricola bio con listino prodotti.",
   },
   {
     title: "Lumen Studio",
-    category: "Branding",
+    category: "Landing Page",
     year: "2024",
-    description: "Identità completa per studio fotografico.",
+    description: "Landing page per studio fotografico, con galleria d'impatto.",
   },
   {
     title: "Flux Finance",
-    category: "Sito su Misura",
+    category: "Custom",
     year: "2024",
     description: "Landing per fintech con dashboard interattiva.",
   },
   {
     title: "Botanica Garden",
-    category: "Sito Vetrina",
+    category: "Vetrina",
     year: "2024",
     description: "Sito vetrina per vivaio di piante rare.",
   },
   {
     title: "Orbit Agency",
-    category: "Branding",
+    category: "Landing Page",
     year: "2023",
-    description: "Rebrand per agenzia di comunicazione.",
+    description: "Landing page promozionale per agenzia di comunicazione.",
   },
   {
     title: "Pulse Fitness",
-    category: "Sito su Misura",
+    category: "Custom",
     year: "2023",
     description: "Piattaforma per palestre con prenotazioni online.",
   },
   {
     title: "Aurora Cosmetics",
-    category: "Sito Vetrina",
+    category: "Vetrina",
     year: "2023",
     description: "Sito vetrina premium per brand di cosmetica.",
   },

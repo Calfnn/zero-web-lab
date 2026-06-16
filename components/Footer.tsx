@@ -14,10 +14,9 @@ const columns = [
   {
     title: "Servizi",
     links: [
-      { label: "Siti Vetrina & Landing Page", href: "/servizi" },
-      { label: "Siti Web su Misura", href: "/servizi" },
-      { label: "Pagina Google e SEO", href: "/servizi" },
-      { label: "Manutenzione & Supporto", href: "/servizi" },
+      { label: "Landing Page", href: "/servizi" },
+      { label: "Sito Vetrina", href: "/servizi" },
+      { label: "Sito Custom", href: "/servizi" },
     ],
   },
   {

@@ -7,18 +7,18 @@ import SectionHeading from "@/components/SectionHeading";
 const previews = [
   {
     num: "01",
-    title: "Siti Vetrina",
-    description: "Siti vetrina e landing page veloci ed efficaci, pensati per presentare la tua attività.",
+    title: "Landing Page",
+    description: "Una pagina unica e d'impatto per presentare la tua attività e trasformare i visitatori in contatti.",
   },
   {
     num: "02",
-    title: "Siti su Misura",
-    description: "Progetti più elaborati con funzionalità avanzate e integrazioni personalizzate.",
+    title: "Sito Vetrina",
+    description: "Un sito multi-pagina per raccontare chi sei, cosa offri e farti trovare, curato in ogni dettaglio.",
   },
   {
     num: "03",
-    title: "Google My Business",
-    description: "Creazione e gestione del profilo Google My Business per farti trovare e presentare al meglio la tua attività su Ricerca e Maps.",
+    title: "Sito Custom",
+    description: "Tutto il Sito Vetrina, più funzionalità avanzate e integrazioni costruite intorno al tuo progetto.",
   },
 ];
 
