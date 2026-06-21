@@ -24,7 +24,7 @@ const dmSans = DM_Sans({
   preload: true,
 });
 
-const siteUrl = "https://zeroweblab.it";
+const siteUrl = "https://www.zeroweblab.it";
 
 // Structured data: tells Google this is a real business entity (helps brand
 // search, local SEO for Cuneo, and rich results). A @graph links the website

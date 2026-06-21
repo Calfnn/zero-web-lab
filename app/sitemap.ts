@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://zeroweblab.it";
+  const base = "https://www.zeroweblab.it";
   const main = ["", "/servizi", "/progetti", "/contatti"];
   const legal = ["/privacy-policy", "/cookie-policy"];
 

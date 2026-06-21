@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://zeroweblab.it/sitemap.xml",
+    sitemap: "https://www.zeroweblab.it/sitemap.xml",
   };
 }
