@@ -20,6 +20,11 @@ const previews = [
     title: "Sito Custom",
     description: "Tutto il Sito Vetrina, più funzionalità avanzate e integrazioni costruite intorno al tuo progetto.",
   },
+  {
+    num: "04",
+    title: "Gestione Social",
+    description: "Gestiamo i tuoi profili social con contenuti coerenti al tuo brand, per farti crescere e restare visibile.",
+  },
 ];
 
 export default function ServicesPreview() {
@@ -28,7 +33,7 @@ export default function ServicesPreview() {
       <div className="container-page">
         <SectionHeading label="/ Servizi" title="Cosa facciamo" />
 
-        <div className="mt-16 grid gap-6 md:grid-cols-3">
+        <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {previews.map((item, i) => (
             <motion.div
               key={item.num}

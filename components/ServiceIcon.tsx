@@ -1,4 +1,4 @@
-// Custom inline SVG icons for the three packages, indexed 0–2.
+// Custom inline SVG icons for the four packages, indexed 0–3.
 const icons = [
   // 0 — Landing Page (single document/page)
   <>
@@ -19,6 +19,11 @@ const icons = [
     <path d="M9 8l-5 4 5 4" />
     <path d="M15 8l5 4-5 4" />
     <path d="M13 6l-2 12" />
+  </>,
+  // 3 — Gestione Social (speech bubble with heart)
+  <>
+    <path d="M21 12a8 8 0 01-11.6 7.1L4 20.5l1.4-4.9A8 8 0 1121 12z" />
+    <path d="M12 15.2l-2.6-2.5a1.6 1.6 0 012.3-2.3l.3.3.3-.3a1.6 1.6 0 012.3 2.3z" />
   </>,
 ];
 

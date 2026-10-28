@@ -17,6 +17,7 @@ const columns = [
       { label: "Landing Page", href: "/servizi" },
       { label: "Sito Vetrina", href: "/servizi" },
       { label: "Sito Custom", href: "/servizi" },
+      { label: "Gestione Social", href: "/servizi" },
     ],
   },
   {

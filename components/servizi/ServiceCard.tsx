@@ -16,7 +16,7 @@ export default function ServiceCard({
       initial={{ opacity: 0, y: 80 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
-      transition={{ delay: (index % 3) * 0.15, duration: 1.3, ease: [0.23, 0.86, 0.39, 0.96] }}
+      transition={{ delay: (index % 2) * 0.15, duration: 1.3, ease: [0.23, 0.86, 0.39, 0.96] }}
       className="group relative overflow-hidden rounded-2xl border border-ink/10 bg-surface p-8 transition-all duration-300 hover:border-accent hover:shadow-[0_0_50px_var(--accent-glow)]"
     >
       <span className="pointer-events-none absolute -right-2 -top-6 font-display text-[110px] leading-none text-accent opacity-[0.06] transition-opacity duration-300 group-hover:opacity-15">

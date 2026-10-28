@@ -52,6 +52,20 @@ export const services: Service[] = [
       "Assistenza prioritaria",
     ],
   },
+  {
+    num: "04",
+    title: "Gestione Social",
+    short: "I tuoi social, curati ogni mese.",
+    description:
+      "Gestiamo i tuoi profili social con contenuti coerenti al tuo brand, per farti crescere e restare visibile.",
+    bullets: [
+      "Strategia e piano editoriale mensile",
+      "Creazione grafiche e contenuti (post, caroselli, stories)",
+      "Copywriting e hashtag mirati",
+      "Pubblicazione programmata",
+      "Report mensile dei risultati",
+    ],
+  },
 ];
 
 export type Project = {

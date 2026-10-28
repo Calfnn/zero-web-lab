@@ -8,7 +8,7 @@ import { services } from "@/lib/data";
 export const metadata: Metadata = {
   title: "Servizi",
   description:
-    "Landing page, siti vetrina e siti custom: scopri i pacchetti di Zero Web Lab, dalla pagina singola alle funzionalità su misura.",
+    "Landing page, siti vetrina, siti custom e gestione social: scopri i pacchetti di Zero Web Lab, dalla pagina singola alle funzionalità su misura.",
   alternates: { canonical: "/servizi" },
 };
 
@@ -22,7 +22,7 @@ export default function ServiziPage() {
       />
 
       <section className="pb-8">
-        <div className="container-page grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="container-page grid gap-6 md:grid-cols-2">
           {services.map((service, i) => (
             <ServiceCard key={service.num} service={service} index={i} />
           ))}
