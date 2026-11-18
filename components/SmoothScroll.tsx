@@ -6,20 +6,20 @@ import Lenis from "lenis";
 
 // Global inertia / smooth scrolling (Lenis). Drives the window scroll, so
 // framer-motion's useScroll/whileInView keep working. Disabled for users who
-// prefer reduced motion. `syncTouch` extends the smoothing to touch devices.
+// prefer reduced motion and on touch devices (phones/tablets), where the
+// native scroll feels better than a smoothed one.
 export default function SmoothScroll() {
   const lenisRef = useRef<Lenis | null>(null);
   const pathname = usePathname();
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (!window.matchMedia("(pointer: fine)").matches) return;
 
     const lenis = new Lenis({
       duration: 1.1,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
-      syncTouch: true,
-      touchMultiplier: 1.5,
     });
     lenisRef.current = lenis;
     // Expose so other components (e.g. the mobile menu) can stop/start scrolling.

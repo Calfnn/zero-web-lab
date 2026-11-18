@@ -3,7 +3,6 @@ import { ImageResponse } from "next/og";
 // Social preview image shown on WhatsApp, Facebook, LinkedIn, X, etc.
 // File-based: Next auto-injects og:image and twitter:image for every route
 // that doesn't define its own. Generated at build, no static asset needed.
-export const runtime = "edge";
 export const alt = "Zero Web Lab — Web Design & Brand Identity";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";

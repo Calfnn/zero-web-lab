@@ -68,90 +68,9 @@ export const services: Service[] = [
   },
 ];
 
-export type Project = {
-  title: string;
-  category: "Landing Page" | "Vetrina" | "Custom";
-  year: string;
-  description: string;
-};
-
-export const projects: Project[] = [
-  {
-    title: "Nordic Atelier",
-    category: "Vetrina",
-    year: "2025",
-    description: "Sito vetrina per studio di architettura scandinavo.",
-  },
-  {
-    title: "Verde Market",
-    category: "Vetrina",
-    year: "2025",
-    description: "Sito vetrina per azienda agricola bio con listino prodotti.",
-  },
-  {
-    title: "Lumen Studio",
-    category: "Landing Page",
-    year: "2024",
-    description: "Landing page per studio fotografico, con galleria d'impatto.",
-  },
-  {
-    title: "Flux Finance",
-    category: "Custom",
-    year: "2024",
-    description: "Landing per fintech con dashboard interattiva.",
-  },
-  {
-    title: "Botanica Garden",
-    category: "Vetrina",
-    year: "2024",
-    description: "Sito vetrina per vivaio di piante rare.",
-  },
-  {
-    title: "Orbit Agency",
-    category: "Landing Page",
-    year: "2023",
-    description: "Landing page promozionale per agenzia di comunicazione.",
-  },
-  {
-    title: "Pulse Fitness",
-    category: "Custom",
-    year: "2023",
-    description: "Piattaforma per palestre con prenotazioni online.",
-  },
-  {
-    title: "Aurora Cosmetics",
-    category: "Vetrina",
-    year: "2023",
-    description: "Sito vetrina premium per brand di cosmetica.",
-  },
-];
-
-export type Testimonial = {
-  quote: string;
-  name: string;
-  role: string;
-};
-
-export const testimonials: Testimonial[] = [
-  {
-    quote:
-      "Zero Web Lab ha trasformato la nostra presenza online. Risultati oltre ogni aspettativa, e un team che ascolta davvero.",
-    name: "Giulia Ferrari",
-    role: "CEO, Nordic Atelier",
-  },
-  {
-    quote:
-      "Professionalità, creatività e tempi rispettati. Le conversioni del nostro store sono raddoppiate in tre mesi.",
-    name: "Marco Bianchi",
-    role: "Founder, Verde Market",
-  },
-  {
-    quote:
-      "Hanno capito il nostro brand meglio di noi. Ogni dettaglio del sito comunica esattamente ciò che volevamo.",
-    name: "Sara Conti",
-    role: "Art Director, Lumen Studio",
-  },
-];
+// Portfolio and testimonials are intentionally empty until real ones are
+// available: the home and /progetti show blurred skeletons with a
+// "Presto disponibili" label, and no invented names/projects ship in the HTML.
 
 export const processSteps = [
   {

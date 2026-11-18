@@ -8,6 +8,7 @@ import GeometricBackground from "@/components/GeometricBackground";
 import SmoothScroll from "@/components/SmoothScroll";
 import ScrollProgress from "@/components/ScrollProgress";
 import PageTransition from "@/components/PageTransition";
+import MotionProvider from "@/components/MotionProvider";
 
 const bebas = Bebas_Neue({
   weight: "400",
@@ -135,16 +136,18 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        {/* Site-wide themed backdrop: faint floating shapes + gradient wash */}
-        <GeometricBackground variant="ambient" />
-        <SmoothScroll />
-        <CustomCursor />
-        <ScrollProgress />
-        <Navbar />
-        <PageTransition>
-          <main className="min-h-screen">{children}</main>
-        </PageTransition>
-        <Footer />
+        <MotionProvider>
+          {/* Site-wide themed backdrop: faint floating shapes + gradient wash */}
+          <GeometricBackground variant="ambient" />
+          <SmoothScroll />
+          <CustomCursor />
+          <ScrollProgress />
+          <Navbar />
+          <PageTransition>
+            <main className="min-h-screen">{children}</main>
+          </PageTransition>
+          <Footer />
+        </MotionProvider>
       </body>
     </html>
   );

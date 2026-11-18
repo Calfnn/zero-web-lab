@@ -4,47 +4,22 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import SectionHeading from "@/components/SectionHeading";
 import Placeholder from "@/components/Placeholder";
-import { projects } from "@/lib/data";
 
-const featured = projects.slice(0, 3);
-
-function ProjectCard({
-  project,
-  large = false,
-}: {
-  project: (typeof projects)[number];
-  large?: boolean;
-}) {
+// Skeleton card: no project names, just shapes (real projects coming soon).
+function SkeletonCard({ large = false }: { large?: boolean }) {
   return (
-    <Link
-      href="/progetti"
-      className={`group relative block overflow-hidden rounded-2xl border border-white/10 ${
+    <div
+      className={`relative overflow-hidden rounded-2xl border border-white/10 ${
         large ? "min-h-[320px] lg:min-h-full" : "min-h-[240px]"
       }`}
     >
-      <Placeholder
-        label={project.title.split(" ")[0]}
-        className="absolute inset-0 h-full w-full transition-transform duration-700 group-hover:scale-105"
-      />
+      <Placeholder className="absolute inset-0 h-full w-full" />
       <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
-
-      <div className="relative flex h-full flex-col justify-end p-6">
-        <span className="mb-3 inline-flex w-fit rounded-full border border-accent/40 bg-accent/10 px-3 py-1 text-xs uppercase tracking-wide text-accent">
-          {project.category}
-        </span>
-        <h3
-          className={`font-sans font-bold tracking-tight text-gradient ${
-            large ? "text-4xl md:text-5xl" : "text-2xl"
-          }`}
-        >
-          {project.title}
-        </h3>
-        {/* Slide-up description */}
-        <p className="mt-2 max-h-0 overflow-hidden text-sm text-muted opacity-0 transition-all duration-500 group-hover:max-h-20 group-hover:opacity-100">
-          {project.description}
-        </p>
+      <div className="relative flex h-full flex-col justify-end gap-3 p-6">
+        <div className="h-6 w-24 rounded-full border border-accent/40 bg-accent/10" />
+        <div className={`rounded-full bg-ink/25 ${large ? "h-10 w-2/3" : "h-7 w-1/2"}`} />
       </div>
-    </Link>
+    </div>
   );
 }
 
@@ -73,10 +48,10 @@ export default function FeaturedProjects() {
             aria-hidden
           >
             <div className="lg:col-span-2 lg:row-span-2">
-              <ProjectCard project={featured[0]} large />
+              <SkeletonCard large />
             </div>
-            <ProjectCard project={featured[1]} />
-            <ProjectCard project={featured[2]} />
+            <SkeletonCard />
+            <SkeletonCard />
           </motion.div>
 
           {/* Etichetta in chiaro sopra alla griglia sfocata */}

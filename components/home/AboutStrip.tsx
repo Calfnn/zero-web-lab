@@ -5,8 +5,7 @@ import CountUp from "@/components/CountUp";
 import ScrambleText from "@/components/ScrambleText";
 
 const stats = [
-  { to: 50, suffix: "+", label: "Progetti" },
-  { to: 4, suffix: "+", label: "Anni" },
+  { to: 5, suffix: "+", label: "Anni" },
   { to: 100, suffix: "%", label: "Soddisfazione" },
 ];
 
@@ -24,7 +23,7 @@ export default function AboutStrip() {
           </h2>
         </Reveal>
 
-        <div className="grid grid-cols-3 gap-6">
+        <div className="grid grid-cols-2 gap-6">
           {stats.map((stat, i) => (
             <Reveal key={stat.label} delay={i + 1}>
               <div className="text-center lg:text-left">

@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 
 // Robust page transition.
 //
@@ -15,22 +15,27 @@ import { useEffect, useRef } from "react";
 // new page is mounted IMMEDIATELY, then fades in. On the very first render we
 // skip the enter animation (initial={false}) so the page is visible instantly
 // even if hydration is slow.
+
+// Module-level flag: false until the app has mounted once in the browser.
+// (Never set on the server, since effects don't run there.)
+let hasMounted = false;
+
 export default function PageTransition({
   children,
 }: {
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
-  const isFirst = useRef(true);
+  const animateIn = hasMounted;
 
   useEffect(() => {
-    isFirst.current = false;
+    hasMounted = true;
   }, []);
 
   return (
     <motion.div
       key={pathname}
-      initial={isFirst.current ? false : { opacity: 0, y: 12 }}
+      initial={animateIn ? { opacity: 0, y: 12 } : false}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
     >

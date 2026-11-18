@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import GeometricBackground from "@/components/GeometricBackground";
 
 export default function HeroGeometric({
-  badge = "Zero Web Lab",
+  badge = "Web Design Cuneo",
   title1 = "Progettiamo il tuo",
   title2 = "Mondo Digitale",
 }: {
@@ -69,7 +69,7 @@ export default function HeroGeometric({
             animate="visible"
           >
             <p className="text-base sm:text-lg md:text-xl text-white/40 mb-8 leading-relaxed font-light tracking-wide max-w-xl mx-auto px-4">
-              Siti web, Landing ed esperienze digitali che convertono.
+              Siti web e landing page che convertono, da Cuneo.
             </p>
           </motion.div>
         </div>

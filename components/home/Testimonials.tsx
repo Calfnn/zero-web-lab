@@ -1,18 +1,8 @@
-"use client";
-
-import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
 import SectionHeading from "@/components/SectionHeading";
-import { testimonials } from "@/lib/data";
 
+// Placeholder until real reviews are available: a blurred skeleton (no text,
+// so nothing fake ends up in the HTML) with a "Presto Disponibili" label.
 export default function Testimonials() {
-  const [index, setIndex] = useState(0);
-  const current = testimonials[index];
-
-  const go = (dir: number) => {
-    setIndex((prev) => (prev + dir + testimonials.length) % testimonials.length);
-  };
-
   return (
     <section className="overflow-hidden border-t border-accent/20 py-24 md:py-32">
       <div className="container-page">
@@ -20,72 +10,26 @@ export default function Testimonials() {
 
         <div className="relative mx-auto mt-16 max-w-3xl">
           {/* Giant decorative quote */}
-          <span className="pointer-events-none absolute -left-4 -top-16 font-display text-[180px] leading-none text-accent opacity-20 md:-left-12">
+          <span
+            className="pointer-events-none absolute -left-4 -top-16 font-display text-[180px] leading-none text-accent opacity-20 md:-left-12"
+            aria-hidden
+          >
             &ldquo;
           </span>
 
-          <AnimatePresence mode="wait">
-            <motion.blockquote
-              key={index}
-              initial={{ opacity: 0, x: 40 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -40 }}
-              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="relative text-center"
-            >
-              {/* Contenuto sfocato: recensioni reali in arrivo */}
-              <div className="select-none blur-[7px]" aria-hidden>
-                <p className="text-balance text-2xl font-light italic leading-relaxed text-ink md:text-3xl">
-                  {current.quote}
-                </p>
-                <footer className="mt-8">
-                  <p className="font-sans font-bold text-2xl tracking-tight text-accent">
-                    {current.name}
-                  </p>
-                  <p className="mt-1 text-sm text-muted">{current.role}</p>
-                </footer>
-              </div>
+          {/* Skeleton righe di citazione, sfocato */}
+          <div className="flex select-none flex-col items-center gap-4 blur-[7px]" aria-hidden>
+            <div className="h-6 w-full rounded-full bg-ink/20" />
+            <div className="h-6 w-11/12 rounded-full bg-ink/20" />
+            <div className="h-6 w-3/4 rounded-full bg-ink/20" />
+            <div className="mt-6 h-7 w-48 rounded-full bg-accent/40" />
+            <div className="h-4 w-32 rounded-full bg-ink/15" />
+          </div>
 
-              {/* Etichetta in chiaro sopra al contenuto sfocato */}
-              <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-                <span className="rounded-full border border-accent/30 bg-background/60 px-5 py-2 text-sm font-medium tracking-wide text-ink backdrop-blur-sm">
-                  Presto Disponibili
-                </span>
-              </div>
-            </motion.blockquote>
-          </AnimatePresence>
-
-          {/* Controls */}
-          <div className="mt-12 flex items-center justify-center gap-6">
-            <button
-              type="button"
-              aria-label="Testimonianza precedente"
-              onClick={() => go(-1)}
-              className="flex h-12 w-12 items-center justify-center rounded-full border border-ink/20 text-ink transition-colors hover:border-accent hover:text-accent"
-            >
-              ←
-            </button>
-            <div className="flex gap-2">
-              {testimonials.map((_, i) => (
-                <button
-                  key={i}
-                  type="button"
-                  aria-label={`Vai alla testimonianza ${i + 1}`}
-                  onClick={() => setIndex(i)}
-                  className={`h-2 rounded-full transition-all duration-300 ${
-                    i === index ? "w-8 bg-accent" : "w-2 bg-ink/20"
-                  }`}
-                />
-              ))}
-            </div>
-            <button
-              type="button"
-              aria-label="Testimonianza successiva"
-              onClick={() => go(1)}
-              className="flex h-12 w-12 items-center justify-center rounded-full border border-ink/20 text-ink transition-colors hover:border-accent hover:text-accent"
-            >
-              →
-            </button>
+          <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+            <span className="rounded-full border border-accent/30 bg-background/60 px-5 py-2 text-sm font-medium tracking-wide text-ink backdrop-blur-sm">
+              Presto Disponibili
+            </span>
           </div>
         </div>
       </div>
