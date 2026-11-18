@@ -28,7 +28,7 @@ export default function ScrambleText({
   className = "",
   style,
   as: Tag = "span",
-  duration = 750,
+  duration = 1400,
 }: Props) {
   const ref = useRef<HTMLElement>(null);
   const inView = useInView(ref, { amount: 0.5 });
