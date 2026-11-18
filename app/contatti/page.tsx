@@ -28,13 +28,13 @@ export default function ContattiPage() {
           {/* Left: info */}
           <div>
             <p className="section-label">/ Contatti</p>
-            <h1
+            <ScrambleText
+              as="h1"
+              text="Parliamo"
+              suffix={<span className="text-accent">.</span>}
               className="font-sans font-bold leading-[1.02] text-gradient"
               style={{ fontSize: "clamp(56px, 10vw, 130px)", letterSpacing: "-0.02em" }}
-            >
-              <ScrambleText as="span" text="Parliamo" />
-              <span className="text-accent">.</span>
-            </h1>
+            />
             <p className="mt-6 max-w-md text-lg text-muted">
               Hai un&apos;idea, un progetto o semplicemente una domanda? Siamo
               qui per ascoltarti.

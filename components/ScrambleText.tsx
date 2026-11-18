@@ -1,6 +1,6 @@
 "use client";
 
-import type { CSSProperties } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import { motion } from "framer-motion";
 
 type Tag = "h1" | "h2" | "h3" | "p" | "span";
@@ -13,6 +13,8 @@ type Props = {
   as?: Tag;
   /** Kept for API compatibility; no longer used. */
   duration?: number;
+  /** Extra content after the text (e.g. a colored dot), animated together. */
+  suffix?: ReactNode;
 };
 
 // Light title entrance: the same fade + rise as the service cards, just
@@ -23,6 +25,7 @@ export default function ScrambleText({
   className = "",
   style,
   as = "span",
+  suffix,
 }: Props) {
   const MotionTag = motion[as];
   return (
@@ -36,6 +39,7 @@ export default function ScrambleText({
       transition={{ duration: 1.1, ease: [0.23, 0.86, 0.39, 0.96] }}
     >
       {text}
+      {suffix}
     </MotionTag>
   );
 }
