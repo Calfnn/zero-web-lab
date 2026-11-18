@@ -1,26 +1,41 @@
-import type { CSSProperties, ElementType } from "react";
+"use client";
+
+import type { CSSProperties } from "react";
+import { motion } from "framer-motion";
+
+type Tag = "h1" | "h2" | "h3" | "p" | "span";
 
 type Props = {
   text: string;
   className?: string;
   style?: CSSProperties;
   /** HTML tag to render (h1, h2, span, …). */
-  as?: ElementType;
+  as?: Tag;
   /** Kept for API compatibility; no longer used. */
   duration?: number;
 };
 
-// Scramble animation disabled (testing mobile scroll performance):
-// renders the title as plain static text.
+// Light title entrance: the same fade + rise as the service cards, just
+// softer (shorter travel). Plays once when the title scrolls into view.
+// Only opacity/transform are animated, so it stays cheap on mobile.
 export default function ScrambleText({
   text,
   className = "",
   style,
-  as: Tag = "span",
+  as = "span",
 }: Props) {
+  const MotionTag = motion[as];
   return (
-    <Tag className={className} style={style}>
+    <MotionTag
+      // Inline spans ignore transforms, so make them inline-block.
+      className={`${as === "span" ? "inline-block " : ""}${className}`}
+      style={style}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 1.1, ease: [0.23, 0.86, 0.39, 0.96] }}
+    >
       {text}
-    </Tag>
+    </MotionTag>
   );
 }
