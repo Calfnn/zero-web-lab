@@ -2,11 +2,13 @@
 
 // Content-Security-Policy. Pragmatic for a marketing site built with Next.js
 // + framer-motion + GSAP (which need inline styles), and a contact form that
-// POSTs to Web3Forms. 'unsafe-inline'/'unsafe-eval' on scripts keep Next's
-// dev/runtime working; tighten later with nonces if needed.
+// POSTs to Web3Forms. 'unsafe-inline' on scripts keeps Next's inline runtime
+// working (tighten later with nonces if needed); 'unsafe-eval' is only needed
+// by the dev server (React Refresh), so it's dropped in production.
+const isDev = process.env.NODE_ENV === "development";
 const csp = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
+  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""}`,
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob:",
   "font-src 'self' data:",

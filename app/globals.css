@@ -167,10 +167,6 @@ body {
   .btn-ghost {
     @apply inline-flex items-center justify-center gap-2 rounded-full border border-ink/30 px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-ink transition-all duration-300 hover:border-ink hover:bg-ink/5;
   }
-
-  .card-surface {
-    @apply rounded-2xl border border-ink/10 bg-surface transition-all duration-300;
-  }
 }
 
 @layer utilities {
@@ -184,44 +180,6 @@ body {
         transparent 0
       );
     background-size: 4px 4px;
-  }
-
-  .grid-lines {
-    background-image: linear-gradient(
-        to right,
-        rgba(139, 92, 246, 0.12) 1px,
-        transparent 1px
-      ),
-      linear-gradient(to bottom, rgba(139, 92, 246, 0.12) 1px, transparent 1px);
-    background-size: 64px 64px;
-  }
-
-  .text-glow {
-    text-shadow: 0 0 30px var(--accent-glow);
-  }
-
-  /* Hero title: Bebas Neue ships a single weight, so thicken the glyphs with a
-     matching text-stroke to make the headline read heavier/bolder. */
-  .hero-title {
-    letter-spacing: 0.03em;
-  }
-  .hero-title .hero-word {
-    -webkit-text-stroke: 2.2px var(--ink);
-    paint-order: stroke fill;
-  }
-  @media (max-width: 768px) {
-    .hero-title .hero-word {
-      -webkit-text-stroke-width: 1.4px;
-    }
-  }
-
-  /* Clip-path reveal for section headings */
-  .reveal-clip {
-    clip-path: inset(0 0 100% 0);
-    transition: clip-path 0.9s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  .reveal-clip.is-visible {
-    clip-path: inset(0 0 0 0);
   }
 }
 

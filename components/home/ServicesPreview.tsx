@@ -3,29 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import SectionHeading from "@/components/SectionHeading";
-
-const previews = [
-  {
-    num: "01",
-    title: "Landing Page",
-    description: "Una pagina unica e d'impatto per presentare la tua attività e trasformare i visitatori in contatti.",
-  },
-  {
-    num: "02",
-    title: "Sito Vetrina",
-    description: "Un sito multi-pagina per raccontare chi sei, cosa offri e farti trovare, curato in ogni dettaglio.",
-  },
-  {
-    num: "03",
-    title: "Sito Custom",
-    description: "Tutto il Sito Vetrina, più funzionalità avanzate e integrazioni costruite intorno al tuo progetto.",
-  },
-  {
-    num: "04",
-    title: "Gestione Social",
-    description: "Gestiamo i tuoi profili social con contenuti coerenti al tuo brand, per farti crescere e restare visibile.",
-  },
-];
+import { services as previews } from "@/lib/data";
 
 export default function ServicesPreview() {
   return (
